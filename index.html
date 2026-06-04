@@ -26,29 +26,17 @@
     .field label { font-size: 13px; font-weight: 500; color: #1a1a18; }
     @media (prefers-color-scheme: dark) { .field label { color: #f0ede8; } }
     .field .hint { font-size: 12px; color: #888780; }
-    input[type="text"], input[type="email"], input[type="url"] {
+    input[type="text"], input[type="email"] {
       width: 100%; padding: 8px 10px; font-size: 14px; border: 0.5px solid rgba(0,0,0,0.2);
       border-radius: 8px; background: #fff; color: #1a1a18; outline: none; transition: border-color .15s, box-shadow .15s;
     }
     input:focus { border-color: rgba(0,0,0,0.4); box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
     @media (prefers-color-scheme: dark) {
-      input[type="text"], input[type="email"], input[type="url"] { background: #1a1a18; color: #f0ede8; border-color: rgba(255,255,255,0.15); }
+      input[type="text"], input[type="email"] { background: #1a1a18; color: #f0ede8; border-color: rgba(255,255,255,0.15); }
       input:focus { border-color: rgba(255,255,255,0.35); box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }
     }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 480px) { .two-col { grid-template-columns: 1fr; } }
-    .tab-row { display: flex; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; }
-    @media (prefers-color-scheme: dark) { .tab-row { border-color: rgba(255,255,255,0.12); } }
-    .tab-btn { flex: 1; padding: 8px 12px; font-size: 13px; background: none; border: none; border-right: 0.5px solid rgba(0,0,0,0.15); cursor: pointer; color: #888780; transition: background .15s; display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .tab-btn:last-child { border-right: none; }
-    .tab-btn.active { background: #f1efe8; color: #1a1a18; font-weight: 500; }
-    .tab-btn:hover:not(.active) { background: #f1efe8; }
-    @media (prefers-color-scheme: dark) {
-      .tab-btn { border-right-color: rgba(255,255,255,0.12); color: #888780; }
-      .tab-btn.active { background: #3a3a38; color: #f0ede8; }
-      .tab-btn:hover:not(.active) { background: #333331; }
-    }
-    .tab-panel { display: none; } .tab-panel.active { display: block; }
     .drop-zone { border: 1.5px dashed rgba(0,0,0,0.2); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; background: #f9f8f5; transition: background .15s; }
     .drop-zone:hover, .drop-zone.drag-over { background: #f1efe8; }
     .drop-zone i { font-size: 28px; color: #b4b2a9; display: block; margin-bottom: .5rem; }
@@ -64,6 +52,7 @@
     @media (prefers-color-scheme: dark) { .file-chip { background: #2c2c2a; border-color: rgba(255,255,255,0.1); } }
     .file-chip .fname { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .file-chip .fsize { font-size: 12px; color: #888780; }
+    .file-chip .status-icon { font-size: 14px; flex-shrink: 0; }
     .file-chip .remove-btn { background: none; border: none; cursor: pointer; color: #888780; padding: 2px; display: flex; align-items: center; line-height: 1; }
     .file-chip .remove-btn:hover { color: #a32d2d; }
     .badge { display: inline-block; padding: 2px 7px; border-radius: 6px; font-size: 11px; font-weight: 500; flex-shrink: 0; }
@@ -73,20 +62,6 @@
     .badge-unk  { background: #F1EFE8; color: #444441; }
     .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.1); margin: 1.25rem 0; }
     @media (prefers-color-scheme: dark) { .divider { border-top-color: rgba(255,255,255,0.08); } }
-    .webhook-row { display: flex; gap: 8px; align-items: center; }
-    .webhook-row input { flex: 1; }
-    .icon-btn {
-      padding: 8px 14px; font-size: 13px; white-space: nowrap; border-radius: 8px; background: none;
-      border: 0.5px solid rgba(0,0,0,0.2); cursor: pointer; color: #5f5e5a;
-      display: flex; align-items: center; gap: 5px; transition: background .15s;
-    }
-    .icon-btn:hover { background: #f1efe8; }
-    @media (prefers-color-scheme: dark) {
-      .icon-btn { border-color: rgba(255,255,255,0.15); color: #888780; }
-      .icon-btn:hover { background: #333331; }
-    }
-    .icon-btn.saved { border-color: #97c459; color: #3b6d11; }
-    @media (prefers-color-scheme: dark) { .icon-btn.saved { border-color: #97c459; color: #97c459; } }
     .status-box { padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: .75rem; display: none; line-height: 1.5; }
     .status-ok   { background: #eaf3de; color: #3b6d11; border: 0.5px solid #97c459; }
     .status-err  { background: #fcebeb; color: #a32d2d; border: 0.5px solid #f09595; }
@@ -96,36 +71,28 @@
     .submit-btn:active { transform: scale(.98); }
     .submit-btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
     @media (prefers-color-scheme: dark) { .submit-btn { background: #f0ede8; color: #1a1a18; } .submit-btn:hover { background: #d3d1c7; } }
+    .progress-bar-wrap { height: 4px; background: rgba(0,0,0,0.08); border-radius: 4px; margin-top: 8px; display: none; overflow: hidden; }
+    .progress-bar { height: 100%; background: #3b6d11; border-radius: 4px; transition: width .3s; width: 0%; }
   </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
     <h1>ARTEMIS Data Collection</h1>
-    <p>Upload the data you want to add to the ARTEMIS Knowledge Base. You can specify a local server path or upload files directly. Accepted formats: <code>.json</code>, <code>.xml</code>, <code>.ttl</code>.</p>
+    <p>Upload the data you want to add to the ARTEMIS Knowledge Base. Files will be stored in the ARTEMIS GitHub repository for review before ingestion. Accepted formats: <code>.json</code>, <code>.xml</code>, <code>.ttl</code>.</p>
   </div>
 
   <div class="section">
-    <div class="section-label">Data source</div>
-    <div class="tab-row">
-      <button class="tab-btn active" onclick="switchTab('folder')" id="tab-folder"><i class="ti ti-folder"></i> Folder path</button>
-      <button class="tab-btn" onclick="switchTab('upload')" id="tab-upload"><i class="ti ti-upload"></i> File upload</button>
+    <div class="section-label">Files</div>
+    <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+      <i class="ti ti-file-upload"></i>
+      <p>Drag files here or <span class="browse">browse</span></p>
+      <p style="margin-top:4px;font-size:11px">.json · .xml · .ttl</p>
     </div>
-    <div class="tab-panel active" id="panel-folder">
-      <div class="field">
-        <label for="folder-path">Local path on server</label>
-        <input type="text" id="folder-path" placeholder="e.g. /artemis_input" value="/artemis_input">
-        <span class="hint">Absolute path of the folder on the server where N8N is running</span>
-      </div>
-    </div>
-    <div class="tab-panel" id="panel-upload">
-      <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
-        <i class="ti ti-file-upload"></i>
-        <p>Drag files here or <span class="browse">browse</span></p>
-        <p style="margin-top:4px;font-size:11px">.json · .xml · .ttl</p>
-      </div>
-      <input type="file" id="file-input" multiple accept=".json,.xml,.ttl" style="display:none">
-      <div class="file-list" id="file-list"></div>
+    <input type="file" id="file-input" multiple accept=".json,.xml,.ttl" style="display:none">
+    <div class="file-list" id="file-list"></div>
+    <div class="progress-bar-wrap" id="progress-wrap">
+      <div class="progress-bar" id="progress-bar"></div>
     </div>
   </div>
 
@@ -145,57 +112,21 @@
     </div>
   </div>
 
-  <hr class="divider">
-
-  <div class="section">
-    <div class="section-label">N8N endpoint</div>
-    <div class="field">
-      <label for="webhook-url">Webhook URL</label>
-      <div class="webhook-row">
-        <input type="text" id="webhook-url" placeholder="https://xxxx.ngrok-free.dev/webhook/artemis-local">
-        <button class="icon-btn" onclick="testConnection()" id="test-btn"><i class="ti ti-plug"></i> Test</button>
-        <button class="icon-btn" onclick="saveUrl()" id="save-btn"><i class="ti ti-device-floppy"></i> Save</button>
-      </div>
-      <span class="hint">Change this whenever ngrok restarts — click <strong>Save</strong> to remember it in this browser.</span>
-    </div>
-  </div>
-
   <div id="status-box" class="status-box"></div>
   <button class="submit-btn" id="submit-btn" onclick="submitForm()">
-    <i class="ti ti-database-import"></i> Start GraphDB ingestion
+    <i class="ti ti-brand-github"></i> Upload to GitHub
   </button>
 </div>
 
 <script>
+  // ── CONFIGURATION ──────────────────────────────────────────────
+  const GITHUB_TOKEN  = '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';
+  const GITHUB_OWNER  = 'lauratonti';
+  const GITHUB_REPO   = 'artemis-form';
+  const GITHUB_FOLDER = 'incoming';
+  // ───────────────────────────────────────────────────────────────
+
   let selectedFiles = [];
-  let activeTab = 'folder';
-
-  // Load saved webhook URL from localStorage on page load
-  window.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('artemis_webhook_url');
-    if (saved) document.getElementById('webhook-url').value = saved;
-  });
-
-  function saveUrl() {
-    const url = document.getElementById('webhook-url').value.trim();
-    if (!url) { showStatus('Please enter a URL before saving.', 'err'); return; }
-    localStorage.setItem('artemis_webhook_url', url);
-    const btn = document.getElementById('save-btn');
-    btn.classList.add('saved');
-    btn.innerHTML = '<i class="ti ti-check"></i> Saved';
-    setTimeout(() => {
-      btn.classList.remove('saved');
-      btn.innerHTML = '<i class="ti ti-device-floppy"></i> Save';
-    }, 2000);
-  }
-
-  function switchTab(tab) {
-    activeTab = tab;
-    ['folder','upload'].forEach(t => {
-      document.getElementById('panel-' + t).classList.toggle('active', t === tab);
-      document.getElementById('tab-' + t).classList.toggle('active', t === tab);
-    });
-  }
 
   function extBadge(name) {
     const ext = name.split('.').pop().toLowerCase();
@@ -211,10 +142,11 @@
 
   function renderFileList() {
     document.getElementById('file-list').innerHTML = selectedFiles.map((f, i) => `
-      <div class="file-chip">
+      <div class="file-chip" id="chip-${i}">
         ${extBadge(f.name)}
         <span class="fname">${f.name}</span>
         <span class="fsize">${formatSize(f.size)}</span>
+        <span class="status-icon" id="status-${i}"></span>
         <button class="remove-btn" onclick="removeFile(${i})" aria-label="Remove ${f.name}">
           <i class="ti ti-x" style="font-size:14px"></i>
         </button>
@@ -245,48 +177,99 @@
     box.style.display = 'block';
   }
 
-  async function testConnection() {
-    const url = document.getElementById('webhook-url').value.trim();
-    if (!url) { showStatus('Please enter the webhook URL first.', 'err'); return; }
-    showStatus('Testing connection…', 'load');
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function uploadToGitHub(file, base64Content, partner, email) {
+    // Build path: incoming/YYYY-MM-DD_partnername/filename
+    const date = new Date().toISOString().slice(0, 10);
+    const safeName = partner.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() || 'unknown';
+    const path = `${GITHUB_FOLDER}/${date}_${safeName}/${file.name}`;
+
+    // Check if file already exists (to get SHA for update)
+    let sha = null;
     try {
-      const r = await fetch(url, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({_test:true}), signal: AbortSignal.timeout(5000) });
-      showStatus((r.ok ? '✓ Webhook reachable' : 'Webhook reached but returned') + ' (HTTP ' + r.status + ')', r.ok ? 'ok' : 'err');
-    } catch(e) { showStatus('Could not reach the webhook: ' + e.message, 'err'); }
+      const check = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`, {
+        headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github+json' }
+      });
+      if (check.ok) { const data = await check.json(); sha = data.sha; }
+    } catch(e) {}
+
+    const body = {
+      message: `Upload ${file.name} — ${partner} <${email}>`,
+      content: base64Content,
+      ...(sha ? { sha } : {})
+    };
+
+    const r = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (!r.ok) {
+      const err = await r.json();
+      throw new Error(err.message || 'GitHub API error');
+    }
+    return path;
   }
 
   async function submitForm() {
-    const webhookUrl = document.getElementById('webhook-url').value.trim();
-    if (!webhookUrl) { showStatus('Please enter the webhook URL.', 'err'); return; }
+    if (!selectedFiles.length) { showStatus('Please select at least one file.', 'err'); return; }
+    const partner = document.getElementById('partner-name').value.trim();
+    const email   = document.getElementById('partner-email').value.trim();
+    if (!partner) { showStatus('Please enter the responsible person name.', 'err'); return; }
+    if (!email)   { showStatus('Please enter the responsible person e-mail.', 'err'); return; }
+
     const btn = document.getElementById('submit-btn');
-    btn.disabled = true; showStatus('Sending…', 'load');
-    try {
-      if (activeTab === 'upload') {
-        if (!selectedFiles.length) { showStatus('Please select at least one file.', 'err'); btn.disabled = false; return; }
-        const form = new FormData();
-        selectedFiles.forEach(f => form.append('File_upload__alternative_to_folder_path_', f, f.name));
-        const name  = document.getElementById('partner-name').value.trim();
-        const email = document.getElementById('partner-email').value.trim();
-        if (name)  form.append('ARTEMIS partner/responsible person for the upload of the data', name);
-        if (email) form.append('ARTEMIS partner/responsible person e-mail', email);
-        const r = await fetch(webhookUrl, { method: 'POST', body: form });
-        if (r.ok) { showStatus('✓ ' + selectedFiles.length + ' file(s) sent successfully.', 'ok'); selectedFiles = []; renderFileList(); }
-        else showStatus('Server error: HTTP ' + r.status, 'err');
-      } else {
-        const folderPath = document.getElementById('folder-path').value.trim() || '/artemis_input';
-        const r = await fetch(webhookUrl, {
-          method: 'POST', headers: {'Content-Type':'application/json'},
-          body: JSON.stringify({
-            folder_path: folderPath,
-            'ARTEMIS partner/responsible person for the upload of the data': document.getElementById('partner-name').value.trim(),
-            'ARTEMIS partner/responsible person e-mail': document.getElementById('partner-email').value.trim()
-          })
-        });
-        if (r.ok) showStatus('✓ Request sent. N8N is now processing folder: ' + folderPath, 'ok');
-        else showStatus('Server error: HTTP ' + r.status, 'err');
+    btn.disabled = true;
+    showStatus(`Uploading ${selectedFiles.length} file(s) to GitHub…`, 'load');
+
+    const progressWrap = document.getElementById('progress-wrap');
+    const progressBar  = document.getElementById('progress-bar');
+    progressWrap.style.display = 'block';
+    progressBar.style.width = '0%';
+
+    let uploaded = 0;
+    const errors = [];
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const file = selectedFiles[i];
+      const statusEl = document.getElementById(`status-${i}`);
+      try {
+        const base64 = await fileToBase64(file);
+        await uploadToGitHub(file, base64, partner, email);
+        if (statusEl) statusEl.textContent = '✓';
+        uploaded++;
+      } catch(e) {
+        if (statusEl) statusEl.textContent = '✗';
+        errors.push(`${file.name}: ${e.message}`);
       }
-    } catch(e) { showStatus('Network error: ' + e.message, 'err'); }
+      progressBar.style.width = ((i + 1) / selectedFiles.length * 100) + '%';
+    }
+
     btn.disabled = false;
+
+    if (errors.length === 0) {
+      showStatus(`✓ All ${uploaded} file(s) uploaded successfully to GitHub (incoming/ folder). The ARTEMIS team will review them before ingestion.`, 'ok');
+      selectedFiles = [];
+      renderFileList();
+      progressWrap.style.display = 'none';
+    } else if (uploaded > 0) {
+      showStatus(`${uploaded} file(s) uploaded. ${errors.length} failed: ${errors.join('; ')}`, 'err');
+    } else {
+      showStatus('Upload failed: ' + errors.join('; '), 'err');
+    }
   }
 </script>
 </body>

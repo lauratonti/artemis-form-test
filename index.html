@@ -26,13 +26,13 @@
     .field label { font-size: 13px; font-weight: 500; color: #1a1a18; }
     @media (prefers-color-scheme: dark) { .field label { color: #f0ede8; } }
     .field .hint { font-size: 12px; color: #888780; }
-    input[type="text"], input[type="email"] {
+    input[type="text"], input[type="email"], input[type="password"] {
       width: 100%; padding: 8px 10px; font-size: 14px; border: 0.5px solid rgba(0,0,0,0.2);
       border-radius: 8px; background: #fff; color: #1a1a18; outline: none; transition: border-color .15s, box-shadow .15s;
     }
     input:focus { border-color: rgba(0,0,0,0.4); box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
     @media (prefers-color-scheme: dark) {
-      input[type="text"], input[type="email"] { background: #1a1a18; color: #f0ede8; border-color: rgba(255,255,255,0.15); }
+      input[type="text"], input[type="email"], input[type="password"] { background: #1a1a18; color: #f0ede8; border-color: rgba(255,255,255,0.15); }
       input:focus { border-color: rgba(255,255,255,0.35); box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }
     }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -62,6 +62,19 @@
     .badge-unk  { background: #F1EFE8; color: #444441; }
     .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.1); margin: 1.25rem 0; }
     @media (prefers-color-scheme: dark) { .divider { border-top-color: rgba(255,255,255,0.08); } }
+    .token-row { display: flex; gap: 8px; align-items: center; }
+    .token-row input { flex: 1; }
+    .icon-btn { padding: 8px 14px; font-size: 13px; white-space: nowrap; border-radius: 8px; background: none; border: 0.5px solid rgba(0,0,0,0.2); cursor: pointer; color: #5f5e5a; display: flex; align-items: center; gap: 5px; transition: background .15s; }
+    .icon-btn:hover { background: #f1efe8; }
+    .icon-btn.saved { border-color: #97c459; color: #3b6d11; }
+    @media (prefers-color-scheme: dark) {
+      .icon-btn { border-color: rgba(255,255,255,0.15); color: #888780; }
+      .icon-btn:hover { background: #333331; }
+      .icon-btn.saved { border-color: #97c459; color: #97c459; }
+    }
+    .token-status { font-size: 12px; margin-top: 4px; }
+    .token-ok  { color: #3b6d11; }
+    .token-missing { color: #a32d2d; }
     .status-box { padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: .75rem; display: none; line-height: 1.5; }
     .status-ok   { background: #eaf3de; color: #3b6d11; border: 0.5px solid #97c459; }
     .status-err  { background: #fcebeb; color: #a32d2d; border: 0.5px solid #f09595; }
@@ -81,6 +94,23 @@
     <h1>ARTEMIS Data Collection</h1>
     <p>Upload the data you want to add to the ARTEMIS Knowledge Base. Files will be stored in the ARTEMIS GitHub repository for review before ingestion. Accepted formats: <code>.json</code>, <code>.xml</code>, <code>.ttl</code>.</p>
   </div>
+
+  <!-- Token section — only shown if token not saved -->
+  <div class="section" id="token-section">
+    <div class="section-label">GitHub access</div>
+    <div class="field">
+      <label for="github-token">Personal Access Token</label>
+      <div class="token-row">
+        <input type="password" id="github-token" placeholder="ghp_...">
+        <button class="icon-btn" onclick="saveToken()" id="save-token-btn"><i class="ti ti-device-floppy"></i> Save</button>
+        <button class="icon-btn" onclick="clearToken()" id="clear-token-btn"><i class="ti ti-trash"></i></button>
+      </div>
+      <div id="token-status" class="token-status"></div>
+      <span class="hint">Saved only in this browser — never sent to any server except GitHub.</span>
+    </div>
+  </div>
+
+  <hr class="divider" id="token-divider">
 
   <div class="section">
     <div class="section-label">Files</div>
@@ -119,15 +149,52 @@
 </div>
 
 <script>
-  // ── CONFIGURATION ──────────────────────────────────────────────
-  const GITHUB_TOKEN  = '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';
+  // ── CONFIGURATION (no secrets here) ───────────────────────────
   const GITHUB_OWNER  = 'lauratonti';
   const GITHUB_REPO   = 'artemis-form';
   const GITHUB_FOLDER = 'incoming';
-  // ───────────────────────────────────────────────────────────────
+  const TOKEN_KEY     = 'artemis_github_token';
+  // ──────────────────────────────────────────────────────────────
 
   let selectedFiles = [];
 
+  // Token management
+  function getToken() { return localStorage.getItem(TOKEN_KEY) || ''; }
+
+  function saveToken() {
+    const val = document.getElementById('github-token').value.trim();
+    if (!val) { updateTokenStatus('Please paste your token first.', false); return; }
+    localStorage.setItem(TOKEN_KEY, val);
+    document.getElementById('github-token').value = '';
+    updateTokenStatus('✓ Token saved in this browser.', true);
+    const btn = document.getElementById('save-token-btn');
+    btn.classList.add('saved');
+    btn.innerHTML = '<i class="ti ti-check"></i> Saved';
+    setTimeout(() => { btn.classList.remove('saved'); btn.innerHTML = '<i class="ti ti-device-floppy"></i> Save'; }, 2000);
+  }
+
+  function clearToken() {
+    localStorage.removeItem(TOKEN_KEY);
+    document.getElementById('github-token').value = '';
+    updateTokenStatus('Token removed. Paste a new one to continue.', false);
+  }
+
+  function updateTokenStatus(msg, ok) {
+    const el = document.getElementById('token-status');
+    el.textContent = msg;
+    el.className = 'token-status ' + (ok ? 'token-ok' : 'token-missing');
+  }
+
+  // On load: check if token already saved
+  window.addEventListener('DOMContentLoaded', () => {
+    if (getToken()) {
+      updateTokenStatus('✓ Token saved in this browser.', true);
+    } else {
+      updateTokenStatus('No token saved — paste your GitHub Personal Access Token above.', false);
+    }
+  });
+
+  // File handling
   function extBadge(name) {
     const ext = name.split('.').pop().toLowerCase();
     const cls = {json:'badge-json', xml:'badge-xml', ttl:'badge-ttl'}[ext] || 'badge-unk';
@@ -186,8 +253,7 @@
     });
   }
 
-  async function uploadToGitHub(file, base64Content, partner, email) {
-    // Build path: incoming/YYYY-MM-DD_partnername/filename
+  async function uploadToGitHub(file, base64Content, partner, email, token) {
     const date = new Date().toISOString().slice(0, 10);
     const safeName = partner.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() || 'unknown';
     const path = `${GITHUB_FOLDER}/${date}_${safeName}/${file.name}`;
@@ -196,25 +262,23 @@
     let sha = null;
     try {
       const check = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`, {
-        headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github+json' }
+        headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
       });
       if (check.ok) { const data = await check.json(); sha = data.sha; }
     } catch(e) {}
 
-    const body = {
-      message: `Upload ${file.name} — ${partner} <${email}>`,
-      content: base64Content,
-      ...(sha ? { sha } : {})
-    };
-
     const r = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`, {
       method: 'PUT',
       headers: {
-        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Authorization': `Bearer ${token}`,
         'Accept': 'application/vnd.github+json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify({
+        message: `Upload ${file.name} — ${partner} <${email}>`,
+        content: base64Content,
+        ...(sha ? { sha } : {})
+      })
     });
 
     if (!r.ok) {
@@ -225,6 +289,8 @@
   }
 
   async function submitForm() {
+    const token = getToken();
+    if (!token) { showStatus('No GitHub token found. Please save your Personal Access Token above.', 'err'); return; }
     if (!selectedFiles.length) { showStatus('Please select at least one file.', 'err'); return; }
     const partner = document.getElementById('partner-name').value.trim();
     const email   = document.getElementById('partner-email').value.trim();
@@ -248,7 +314,7 @@
       const statusEl = document.getElementById(`status-${i}`);
       try {
         const base64 = await fileToBase64(file);
-        await uploadToGitHub(file, base64, partner, email);
+        await uploadToGitHub(file, base64, partner, email, token);
         if (statusEl) statusEl.textContent = '✓';
         uploaded++;
       } catch(e) {
@@ -261,7 +327,7 @@
     btn.disabled = false;
 
     if (errors.length === 0) {
-      showStatus(`✓ All ${uploaded} file(s) uploaded successfully to GitHub (incoming/ folder). The ARTEMIS team will review them before ingestion.`, 'ok');
+      showStatus(`✓ All ${uploaded} file(s) uploaded to GitHub in incoming/${new Date().toISOString().slice(0,10)}_${partner.replace(/[^a-zA-Z0-9]/g,'_').toLowerCase()}/. The ARTEMIS team will review them before ingestion.`, 'ok');
       selectedFiles = [];
       renderFileList();
       progressWrap.style.display = 'none';

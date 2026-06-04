@@ -26,13 +26,13 @@
     .field label { font-size: 13px; font-weight: 500; color: #1a1a18; }
     @media (prefers-color-scheme: dark) { .field label { color: #f0ede8; } }
     .field .hint { font-size: 12px; color: #888780; }
-    input[type="text"], input[type="email"], input[type="password"] {
+    input[type="text"], input[type="email"] {
       width: 100%; padding: 8px 10px; font-size: 14px; border: 0.5px solid rgba(0,0,0,0.2);
       border-radius: 8px; background: #fff; color: #1a1a18; outline: none; transition: border-color .15s, box-shadow .15s;
     }
     input:focus { border-color: rgba(0,0,0,0.4); box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
     @media (prefers-color-scheme: dark) {
-      input[type="text"], input[type="email"], input[type="password"] { background: #1a1a18; color: #f0ede8; border-color: rgba(255,255,255,0.15); }
+      input[type="text"], input[type="email"] { background: #1a1a18; color: #f0ede8; border-color: rgba(255,255,255,0.15); }
       input:focus { border-color: rgba(255,255,255,0.35); box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }
     }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -52,7 +52,6 @@
     @media (prefers-color-scheme: dark) { .file-chip { background: #2c2c2a; border-color: rgba(255,255,255,0.1); } }
     .file-chip .fname { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .file-chip .fsize { font-size: 12px; color: #888780; }
-    .file-chip .status-icon { font-size: 14px; flex-shrink: 0; }
     .file-chip .remove-btn { background: none; border: none; cursor: pointer; color: #888780; padding: 2px; display: flex; align-items: center; line-height: 1; }
     .file-chip .remove-btn:hover { color: #a32d2d; }
     .badge { display: inline-block; padding: 2px 7px; border-radius: 6px; font-size: 11px; font-weight: 500; flex-shrink: 0; }
@@ -62,8 +61,8 @@
     .badge-unk  { background: #F1EFE8; color: #444441; }
     .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.1); margin: 1.25rem 0; }
     @media (prefers-color-scheme: dark) { .divider { border-top-color: rgba(255,255,255,0.08); } }
-    .token-row { display: flex; gap: 8px; align-items: center; }
-    .token-row input { flex: 1; }
+    .webhook-row { display: flex; gap: 8px; align-items: center; }
+    .webhook-row input { flex: 1; }
     .icon-btn { padding: 8px 14px; font-size: 13px; white-space: nowrap; border-radius: 8px; background: none; border: 0.5px solid rgba(0,0,0,0.2); cursor: pointer; color: #5f5e5a; display: flex; align-items: center; gap: 5px; transition: background .15s; }
     .icon-btn:hover { background: #f1efe8; }
     .icon-btn.saved { border-color: #97c459; color: #3b6d11; }
@@ -72,9 +71,6 @@
       .icon-btn:hover { background: #333331; }
       .icon-btn.saved { border-color: #97c459; color: #97c459; }
     }
-    .token-status { font-size: 12px; margin-top: 4px; }
-    .token-ok  { color: #3b6d11; }
-    .token-missing { color: #a32d2d; }
     .status-box { padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: .75rem; display: none; line-height: 1.5; }
     .status-ok   { background: #eaf3de; color: #3b6d11; border: 0.5px solid #97c459; }
     .status-err  { background: #fcebeb; color: #a32d2d; border: 0.5px solid #f09595; }
@@ -84,33 +80,14 @@
     .submit-btn:active { transform: scale(.98); }
     .submit-btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
     @media (prefers-color-scheme: dark) { .submit-btn { background: #f0ede8; color: #1a1a18; } .submit-btn:hover { background: #d3d1c7; } }
-    .progress-bar-wrap { height: 4px; background: rgba(0,0,0,0.08); border-radius: 4px; margin-top: 8px; display: none; overflow: hidden; }
-    .progress-bar { height: 100%; background: #3b6d11; border-radius: 4px; transition: width .3s; width: 0%; }
   </style>
 </head>
 <body>
 <div class="card">
   <div class="header">
     <h1>ARTEMIS Data Collection</h1>
-    <p>Upload the data you want to add to the ARTEMIS Knowledge Base. Files will be stored in the ARTEMIS GitHub repository for review before ingestion. Accepted formats: <code>.json</code>, <code>.xml</code>, <code>.ttl</code>.</p>
+    <p>Upload the data you want to add to the ARTEMIS Knowledge Base. Accepted formats: <code>.json</code>, <code>.xml</code>, <code>.ttl</code>.</p>
   </div>
-
-  <!-- Token section — only shown if token not saved -->
-  <div class="section" id="token-section">
-    <div class="section-label">GitHub access</div>
-    <div class="field">
-      <label for="github-token">Personal Access Token</label>
-      <div class="token-row">
-        <input type="password" id="github-token" placeholder="ghp_...">
-        <button class="icon-btn" onclick="saveToken()" id="save-token-btn"><i class="ti ti-device-floppy"></i> Save</button>
-        <button class="icon-btn" onclick="clearToken()" id="clear-token-btn"><i class="ti ti-trash"></i></button>
-      </div>
-      <div id="token-status" class="token-status"></div>
-      <span class="hint">Saved only in this browser — never sent to any server except GitHub.</span>
-    </div>
-  </div>
-
-  <hr class="divider" id="token-divider">
 
   <div class="section">
     <div class="section-label">Files</div>
@@ -121,9 +98,6 @@
     </div>
     <input type="file" id="file-input" multiple accept=".json,.xml,.ttl" style="display:none">
     <div class="file-list" id="file-list"></div>
-    <div class="progress-bar-wrap" id="progress-wrap">
-      <div class="progress-bar" id="progress-bar"></div>
-    </div>
   </div>
 
   <hr class="divider">
@@ -142,59 +116,46 @@
     </div>
   </div>
 
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-label">N8N endpoint</div>
+    <div class="field">
+      <label for="webhook-url">Webhook URL</label>
+      <div class="webhook-row">
+        <input type="text" id="webhook-url" placeholder="https://xxxx.ngrok-free.dev/webhook/artemis-local">
+        <button class="icon-btn" onclick="testConnection()" id="test-btn"><i class="ti ti-plug"></i> Test</button>
+        <button class="icon-btn" onclick="saveUrl()" id="save-btn"><i class="ti ti-device-floppy"></i> Save</button>
+      </div>
+      <span class="hint">Change this whenever ngrok restarts — click <strong>Save</strong> to remember it in this browser.</span>
+    </div>
+  </div>
+
   <div id="status-box" class="status-box"></div>
   <button class="submit-btn" id="submit-btn" onclick="submitForm()">
-    <i class="ti ti-brand-github"></i> Upload to GitHub
+    <i class="ti ti-database-import"></i> Start GraphDB ingestion
   </button>
 </div>
 
 <script>
-  // ── CONFIGURATION (no secrets here) ───────────────────────────
-  const GITHUB_OWNER  = 'lauratonti';
-  const GITHUB_REPO   = 'artemis-form';
-  const GITHUB_FOLDER = 'incoming';
-  const TOKEN_KEY     = 'artemis_github_token';
-  // ──────────────────────────────────────────────────────────────
-
   let selectedFiles = [];
 
-  // Token management
-  function getToken() { return localStorage.getItem(TOKEN_KEY) || ''; }
+  // Load saved webhook URL
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('artemis_webhook_url');
+    if (saved) document.getElementById('webhook-url').value = saved;
+  });
 
-  function saveToken() {
-    const val = document.getElementById('github-token').value.trim();
-    if (!val) { updateTokenStatus('Please paste your token first.', false); return; }
-    localStorage.setItem(TOKEN_KEY, val);
-    document.getElementById('github-token').value = '';
-    updateTokenStatus('✓ Token saved in this browser.', true);
-    const btn = document.getElementById('save-token-btn');
+  function saveUrl() {
+    const url = document.getElementById('webhook-url').value.trim();
+    if (!url) return;
+    localStorage.setItem('artemis_webhook_url', url);
+    const btn = document.getElementById('save-btn');
     btn.classList.add('saved');
     btn.innerHTML = '<i class="ti ti-check"></i> Saved';
     setTimeout(() => { btn.classList.remove('saved'); btn.innerHTML = '<i class="ti ti-device-floppy"></i> Save'; }, 2000);
   }
 
-  function clearToken() {
-    localStorage.removeItem(TOKEN_KEY);
-    document.getElementById('github-token').value = '';
-    updateTokenStatus('Token removed. Paste a new one to continue.', false);
-  }
-
-  function updateTokenStatus(msg, ok) {
-    const el = document.getElementById('token-status');
-    el.textContent = msg;
-    el.className = 'token-status ' + (ok ? 'token-ok' : 'token-missing');
-  }
-
-  // On load: check if token already saved
-  window.addEventListener('DOMContentLoaded', () => {
-    if (getToken()) {
-      updateTokenStatus('✓ Token saved in this browser.', true);
-    } else {
-      updateTokenStatus('No token saved — paste your GitHub Personal Access Token above.', false);
-    }
-  });
-
-  // File handling
   function extBadge(name) {
     const ext = name.split('.').pop().toLowerCase();
     const cls = {json:'badge-json', xml:'badge-xml', ttl:'badge-ttl'}[ext] || 'badge-unk';
@@ -209,11 +170,10 @@
 
   function renderFileList() {
     document.getElementById('file-list').innerHTML = selectedFiles.map((f, i) => `
-      <div class="file-chip" id="chip-${i}">
+      <div class="file-chip">
         ${extBadge(f.name)}
         <span class="fname">${f.name}</span>
         <span class="fsize">${formatSize(f.size)}</span>
-        <span class="status-icon" id="status-${i}"></span>
         <button class="remove-btn" onclick="removeFile(${i})" aria-label="Remove ${f.name}">
           <i class="ti ti-x" style="font-size:14px"></i>
         </button>
@@ -244,6 +204,7 @@
     box.style.display = 'block';
   }
 
+  // Convert file to base64 text (UTF-8 safe)
   function fileToBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -253,89 +214,65 @@
     });
   }
 
-  async function uploadToGitHub(file, base64Content, partner, email, token) {
-    const date = new Date().toISOString().slice(0, 10);
-    const safeName = partner.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() || 'unknown';
-    const path = `${GITHUB_FOLDER}/${date}_${safeName}/${file.name}`;
-
-    // Check if file already exists (to get SHA for update)
-    let sha = null;
+  async function testConnection() {
+    const url = document.getElementById('webhook-url').value.trim();
+    if (!url) { showStatus('Please enter the webhook URL first.', 'err'); return; }
+    showStatus('Testing connection…', 'load');
     try {
-      const check = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`, {
-        headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+      const r = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ _test: true }),
+        signal: AbortSignal.timeout(5000)
       });
-      if (check.ok) { const data = await check.json(); sha = data.sha; }
-    } catch(e) {}
-
-    const r = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: `Upload ${file.name} — ${partner} <${email}>`,
-        content: base64Content,
-        ...(sha ? { sha } : {})
-      })
-    });
-
-    if (!r.ok) {
-      const err = await r.json();
-      throw new Error(err.message || 'GitHub API error');
-    }
-    return path;
+      showStatus((r.ok ? '✓ Webhook reachable' : 'Webhook reached but returned') + ' (HTTP ' + r.status + ')', r.ok ? 'ok' : 'err');
+    } catch(e) { showStatus('Could not reach the webhook: ' + e.message, 'err'); }
   }
 
   async function submitForm() {
-    const token = getToken();
-    if (!token) { showStatus('No GitHub token found. Please save your Personal Access Token above.', 'err'); return; }
+    const webhookUrl = document.getElementById('webhook-url').value.trim();
+    if (!webhookUrl) { showStatus('Please enter the webhook URL.', 'err'); return; }
     if (!selectedFiles.length) { showStatus('Please select at least one file.', 'err'); return; }
-    const partner = document.getElementById('partner-name').value.trim();
-    const email   = document.getElementById('partner-email').value.trim();
-    if (!partner) { showStatus('Please enter the responsible person name.', 'err'); return; }
-    if (!email)   { showStatus('Please enter the responsible person e-mail.', 'err'); return; }
 
     const btn = document.getElementById('submit-btn');
     btn.disabled = true;
-    showStatus(`Uploading ${selectedFiles.length} file(s) to GitHub…`, 'load');
+    showStatus(`Reading and encoding ${selectedFiles.length} file(s)…`, 'load');
 
-    const progressWrap = document.getElementById('progress-wrap');
-    const progressBar  = document.getElementById('progress-bar');
-    progressWrap.style.display = 'block';
-    progressBar.style.width = '0%';
+    // Convert all files to base64
+    const files = [];
+    for (const file of selectedFiles) {
+      const base64 = await fileToBase64(file);
+      files.push({
+        fileName: file.name,
+        format: file.name.split('.').pop().toLowerCase(),
+        content: base64  // pure base64, no prefix
+      });
+    }
 
-    let uploaded = 0;
-    const errors = [];
+    showStatus('Sending to N8N…', 'load');
 
-    for (let i = 0; i < selectedFiles.length; i++) {
-      const file = selectedFiles[i];
-      const statusEl = document.getElementById(`status-${i}`);
-      try {
-        const base64 = await fileToBase64(file);
-        await uploadToGitHub(file, base64, partner, email, token);
-        if (statusEl) statusEl.textContent = '✓';
-        uploaded++;
-      } catch(e) {
-        if (statusEl) statusEl.textContent = '✗';
-        errors.push(`${file.name}: ${e.message}`);
+    try {
+      const r = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          files,
+          partner: document.getElementById('partner-name').value.trim(),
+          email: document.getElementById('partner-email').value.trim()
+        })
+      });
+      if (r.ok) {
+        showStatus(`✓ ${selectedFiles.length} file(s) sent successfully.`, 'ok');
+        selectedFiles = [];
+        renderFileList();
+      } else {
+        showStatus('Server error: HTTP ' + r.status, 'err');
       }
-      progressBar.style.width = ((i + 1) / selectedFiles.length * 100) + '%';
+    } catch(e) {
+      showStatus('Network error: ' + e.message, 'err');
     }
 
     btn.disabled = false;
-
-    if (errors.length === 0) {
-      showStatus(`✓ All ${uploaded} file(s) uploaded to GitHub in incoming/${new Date().toISOString().slice(0,10)}_${partner.replace(/[^a-zA-Z0-9]/g,'_').toLowerCase()}/. The ARTEMIS team will review them before ingestion.`, 'ok');
-      selectedFiles = [];
-      renderFileList();
-      progressWrap.style.display = 'none';
-    } else if (uploaded > 0) {
-      showStatus(`${uploaded} file(s) uploaded. ${errors.length} failed: ${errors.join('; ')}`, 'err');
-    } else {
-      showStatus('Upload failed: ' + errors.join('; '), 'err');
-    }
   }
 </script>
 </body>

@@ -7,112 +7,39 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      background: #f5f5f3;
-      color: #1a1a18;
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 2rem 1rem;
+      font-size: 15px; line-height: 1.6; background: #f5f5f3; color: #1a1a18;
+      min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 2rem 1rem;
     }
-
-    @media (prefers-color-scheme: dark) {
-      body { background: #1a1a18; color: #f0ede8; }
-    }
-
-    .card {
-      background: #fff;
-      border: 0.5px solid rgba(0,0,0,0.12);
-      border-radius: 16px;
-      padding: 2rem;
-      width: 100%;
-      max-width: 620px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .card { background: #2c2c2a; border-color: rgba(255,255,255,0.1); }
-    }
-
+    @media (prefers-color-scheme: dark) { body { background: #1a1a18; color: #f0ede8; } }
+    .card { background: #fff; border: 0.5px solid rgba(0,0,0,0.12); border-radius: 16px; padding: 2rem; width: 100%; max-width: 620px; }
+    @media (prefers-color-scheme: dark) { .card { background: #2c2c2a; border-color: rgba(255,255,255,0.1); } }
     .header { margin-bottom: 1.5rem; }
     .header h1 { font-size: 20px; font-weight: 500; margin-bottom: .4rem; }
     .header p { font-size: 13px; color: #5f5e5a; line-height: 1.5; }
     @media (prefers-color-scheme: dark) { .header p { color: #888780; } }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      color: #888780;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: .75rem;
-    }
-
+    .section-label { font-size: 11px; font-weight: 500; color: #888780; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .75rem; }
     .section { margin-bottom: 1.5rem; }
-
     .field { display: flex; flex-direction: column; gap: 5px; margin-bottom: .9rem; }
     .field:last-child { margin-bottom: 0; }
     .field label { font-size: 13px; font-weight: 500; color: #1a1a18; }
     @media (prefers-color-scheme: dark) { .field label { color: #f0ede8; } }
     .field .hint { font-size: 12px; color: #888780; }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="url"] {
-      width: 100%;
-      padding: 8px 10px;
-      font-size: 14px;
-      border: 0.5px solid rgba(0,0,0,0.2);
-      border-radius: 8px;
-      background: #fff;
-      color: #1a1a18;
-      outline: none;
-      transition: border-color .15s, box-shadow .15s;
+    input[type="text"], input[type="email"], input[type="url"] {
+      width: 100%; padding: 8px 10px; font-size: 14px; border: 0.5px solid rgba(0,0,0,0.2);
+      border-radius: 8px; background: #fff; color: #1a1a18; outline: none; transition: border-color .15s, box-shadow .15s;
     }
-    input:focus {
-      border-color: rgba(0,0,0,0.4);
-      box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
-    }
+    input:focus { border-color: rgba(0,0,0,0.4); box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
     @media (prefers-color-scheme: dark) {
-      input[type="text"], input[type="email"], input[type="url"] {
-        background: #1a1a18;
-        color: #f0ede8;
-        border-color: rgba(255,255,255,0.15);
-      }
+      input[type="text"], input[type="email"], input[type="url"] { background: #1a1a18; color: #f0ede8; border-color: rgba(255,255,255,0.15); }
       input:focus { border-color: rgba(255,255,255,0.35); box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }
     }
-
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 480px) { .two-col { grid-template-columns: 1fr; } }
-
-    .tab-row {
-      display: flex;
-      border: 0.5px solid rgba(0,0,0,0.15);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 1.25rem;
-    }
+    .tab-row { display: flex; border: 0.5px solid rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; }
     @media (prefers-color-scheme: dark) { .tab-row { border-color: rgba(255,255,255,0.12); } }
-
-    .tab-btn {
-      flex: 1;
-      padding: 8px 12px;
-      font-size: 13px;
-      background: none;
-      border: none;
-      border-right: 0.5px solid rgba(0,0,0,0.15);
-      cursor: pointer;
-      color: #888780;
-      transition: background .15s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
+    .tab-btn { flex: 1; padding: 8px 12px; font-size: 13px; background: none; border: none; border-right: 0.5px solid rgba(0,0,0,0.15); cursor: pointer; color: #888780; transition: background .15s; display: flex; align-items: center; justify-content: center; gap: 6px; }
     .tab-btn:last-child { border-right: none; }
     .tab-btn.active { background: #f1efe8; color: #1a1a18; font-weight: 500; }
     .tab-btn:hover:not(.active) { background: #f1efe8; }
@@ -121,19 +48,8 @@
       .tab-btn.active { background: #3a3a38; color: #f0ede8; }
       .tab-btn:hover:not(.active) { background: #333331; }
     }
-
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-
-    .drop-zone {
-      border: 1.5px dashed rgba(0,0,0,0.2);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      cursor: pointer;
-      background: #f9f8f5;
-      transition: background .15s;
-    }
+    .tab-panel { display: none; } .tab-panel.active { display: block; }
+    .drop-zone { border: 1.5px dashed rgba(0,0,0,0.2); border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; background: #f9f8f5; transition: background .15s; }
     .drop-zone:hover, .drop-zone.drag-over { background: #f1efe8; }
     .drop-zone i { font-size: 28px; color: #b4b2a9; display: block; margin-bottom: .5rem; }
     .drop-zone p { font-size: 13px; color: #888780; }
@@ -143,107 +59,46 @@
       .drop-zone:hover, .drop-zone.drag-over { background: #2a2a28; }
       .drop-zone .browse { color: #85b7eb; }
     }
-
     .file-list { margin-top: .75rem; display: flex; flex-direction: column; gap: 6px; }
-
-    .file-chip {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border: 0.5px solid rgba(0,0,0,0.1);
-      border-radius: 8px;
-      background: #fff;
-      font-size: 13px;
-    }
+    .file-chip { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 8px; background: #fff; font-size: 13px; }
     @media (prefers-color-scheme: dark) { .file-chip { background: #2c2c2a; border-color: rgba(255,255,255,0.1); } }
-
     .file-chip .fname { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .file-chip .fsize { font-size: 12px; color: #888780; }
-    .file-chip .remove-btn {
-      background: none; border: none; cursor: pointer;
-      color: #888780; padding: 2px; display: flex; align-items: center; line-height: 1;
-    }
+    .file-chip .remove-btn { background: none; border: none; cursor: pointer; color: #888780; padding: 2px; display: flex; align-items: center; line-height: 1; }
     .file-chip .remove-btn:hover { color: #a32d2d; }
-
-    .badge {
-      display: inline-block;
-      padding: 2px 7px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 500;
-      flex-shrink: 0;
-    }
+    .badge { display: inline-block; padding: 2px 7px; border-radius: 6px; font-size: 11px; font-weight: 500; flex-shrink: 0; }
     .badge-json { background: #E6F1FB; color: #0C447C; }
     .badge-xml  { background: #E1F5EE; color: #085041; }
     .badge-ttl  { background: #FAEEDA; color: #633806; }
     .badge-unk  { background: #F1EFE8; color: #444441; }
-
     .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.1); margin: 1.25rem 0; }
     @media (prefers-color-scheme: dark) { .divider { border-top-color: rgba(255,255,255,0.08); } }
-
     .webhook-row { display: flex; gap: 8px; align-items: center; }
     .webhook-row input { flex: 1; }
-
-    .test-btn {
-      padding: 8px 14px;
-      font-size: 13px;
-      white-space: nowrap;
-      border-radius: 8px;
-      background: none;
-      border: 0.5px solid rgba(0,0,0,0.2);
-      cursor: pointer;
-      color: #5f5e5a;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: background .15s;
+    .icon-btn {
+      padding: 8px 14px; font-size: 13px; white-space: nowrap; border-radius: 8px; background: none;
+      border: 0.5px solid rgba(0,0,0,0.2); cursor: pointer; color: #5f5e5a;
+      display: flex; align-items: center; gap: 5px; transition: background .15s;
     }
-    .test-btn:hover { background: #f1efe8; }
+    .icon-btn:hover { background: #f1efe8; }
     @media (prefers-color-scheme: dark) {
-      .test-btn { border-color: rgba(255,255,255,0.15); color: #888780; }
-      .test-btn:hover { background: #333331; }
+      .icon-btn { border-color: rgba(255,255,255,0.15); color: #888780; }
+      .icon-btn:hover { background: #333331; }
     }
-
-    .status-box {
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      margin-bottom: .75rem;
-      display: none;
-      line-height: 1.5;
-    }
-    .status-ok  { background: #eaf3de; color: #3b6d11; border: 0.5px solid #97c459; }
-    .status-err { background: #fcebeb; color: #a32d2d; border: 0.5px solid #f09595; }
+    .icon-btn.saved { border-color: #97c459; color: #3b6d11; }
+    @media (prefers-color-scheme: dark) { .icon-btn.saved { border-color: #97c459; color: #97c459; } }
+    .status-box { padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: .75rem; display: none; line-height: 1.5; }
+    .status-ok   { background: #eaf3de; color: #3b6d11; border: 0.5px solid #97c459; }
+    .status-err  { background: #fcebeb; color: #a32d2d; border: 0.5px solid #f09595; }
     .status-load { background: #f1efe8; color: #5f5e5a; border: 0.5px solid #d3d1c7; }
-
-    .submit-btn {
-      width: 100%;
-      padding: 11px;
-      font-size: 15px;
-      font-weight: 500;
-      border-radius: 10px;
-      background: #1a1a18;
-      border: none;
-      cursor: pointer;
-      color: #f0ede8;
-      transition: background .15s, transform .1s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
+    .submit-btn { width: 100%; padding: 11px; font-size: 15px; font-weight: 500; border-radius: 10px; background: #1a1a18; border: none; cursor: pointer; color: #f0ede8; transition: background .15s, transform .1s; display: flex; align-items: center; justify-content: center; gap: 8px; }
     .submit-btn:hover { background: #2c2c2a; }
     .submit-btn:active { transform: scale(.98); }
     .submit-btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
-    @media (prefers-color-scheme: dark) {
-      .submit-btn { background: #f0ede8; color: #1a1a18; }
-      .submit-btn:hover { background: #d3d1c7; }
-    }
+    @media (prefers-color-scheme: dark) { .submit-btn { background: #f0ede8; color: #1a1a18; } .submit-btn:hover { background: #d3d1c7; } }
   </style>
 </head>
 <body>
-
 <div class="card">
   <div class="header">
     <h1>ARTEMIS Data Collection</h1>
@@ -253,14 +108,9 @@
   <div class="section">
     <div class="section-label">Data source</div>
     <div class="tab-row">
-      <button class="tab-btn active" onclick="switchTab('folder')" id="tab-folder">
-        <i class="ti ti-folder"></i> Folder path
-      </button>
-      <button class="tab-btn" onclick="switchTab('upload')" id="tab-upload">
-        <i class="ti ti-upload"></i> File upload
-      </button>
+      <button class="tab-btn active" onclick="switchTab('folder')" id="tab-folder"><i class="ti ti-folder"></i> Folder path</button>
+      <button class="tab-btn" onclick="switchTab('upload')" id="tab-upload"><i class="ti ti-upload"></i> File upload</button>
     </div>
-
     <div class="tab-panel active" id="panel-folder">
       <div class="field">
         <label for="folder-path">Local path on server</label>
@@ -268,7 +118,6 @@
         <span class="hint">Absolute path of the folder on the server where N8N is running</span>
       </div>
     </div>
-
     <div class="tab-panel" id="panel-upload">
       <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
         <i class="ti ti-file-upload"></i>
@@ -303,17 +152,15 @@
     <div class="field">
       <label for="webhook-url">Webhook URL</label>
       <div class="webhook-row">
-        <input type="text" id="webhook-url" value="https://handled-aloof-aqua.ngrok-free.dev/webhook/artemis-local">
-        <button class="test-btn" onclick="testConnection()">
-          <i class="ti ti-plug"></i> Test
-        </button>
+        <input type="text" id="webhook-url" placeholder="https://xxxx.ngrok-free.dev/webhook/artemis-local">
+        <button class="icon-btn" onclick="testConnection()" id="test-btn"><i class="ti ti-plug"></i> Test</button>
+        <button class="icon-btn" onclick="saveUrl()" id="save-btn"><i class="ti ti-device-floppy"></i> Save</button>
       </div>
-      <span class="hint">N8N webhook URL — POST <code>/webhook/artemis-local</code></span>
+      <span class="hint">Change this whenever ngrok restarts — click <strong>Save</strong> to remember it in this browser.</span>
     </div>
   </div>
 
   <div id="status-box" class="status-box"></div>
-
   <button class="submit-btn" id="submit-btn" onclick="submitForm()">
     <i class="ti ti-database-import"></i> Start GraphDB ingestion
   </button>
@@ -322,6 +169,25 @@
 <script>
   let selectedFiles = [];
   let activeTab = 'folder';
+
+  // Load saved webhook URL from localStorage on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('artemis_webhook_url');
+    if (saved) document.getElementById('webhook-url').value = saved;
+  });
+
+  function saveUrl() {
+    const url = document.getElementById('webhook-url').value.trim();
+    if (!url) { showStatus('Please enter a URL before saving.', 'err'); return; }
+    localStorage.setItem('artemis_webhook_url', url);
+    const btn = document.getElementById('save-btn');
+    btn.classList.add('saved');
+    btn.innerHTML = '<i class="ti ti-check"></i> Saved';
+    setTimeout(() => {
+      btn.classList.remove('saved');
+      btn.innerHTML = '<i class="ti ti-device-floppy"></i> Save';
+    }, 2000);
+  }
 
   function switchTab(tab) {
     activeTab = tab;
@@ -356,23 +222,18 @@
     `).join('');
   }
 
-  function removeFile(i) {
-    selectedFiles.splice(i, 1);
-    renderFileList();
-  }
+  function removeFile(i) { selectedFiles.splice(i, 1); renderFileList(); }
 
   document.getElementById('file-input').addEventListener('change', e => {
     selectedFiles.push(...Array.from(e.target.files).filter(f => /\.(json|xml|ttl)$/i.test(f.name)));
-    renderFileList();
-    e.target.value = '';
+    renderFileList(); e.target.value = '';
   });
 
   const dz = document.getElementById('drop-zone');
   dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag-over'); });
   dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
   dz.addEventListener('drop', e => {
-    e.preventDefault();
-    dz.classList.remove('drag-over');
+    e.preventDefault(); dz.classList.remove('drag-over');
     selectedFiles.push(...Array.from(e.dataTransfer.files).filter(f => /\.(json|xml|ttl)$/i.test(f.name)));
     renderFileList();
   });
@@ -389,27 +250,16 @@
     if (!url) { showStatus('Please enter the webhook URL first.', 'err'); return; }
     showStatus('Testing connection…', 'load');
     try {
-      const r = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ _test: true }),
-        signal: AbortSignal.timeout(5000)
-      });
-      showStatus(
-        (r.ok ? '✓ Webhook reachable' : 'Webhook reached but returned') + ' (HTTP ' + r.status + ')',
-        r.ok ? 'ok' : 'err'
-      );
-    } catch (e) {
-      showStatus('Could not reach the webhook: ' + e.message, 'err');
-    }
+      const r = await fetch(url, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({_test:true}), signal: AbortSignal.timeout(5000) });
+      showStatus((r.ok ? '✓ Webhook reachable' : 'Webhook reached but returned') + ' (HTTP ' + r.status + ')', r.ok ? 'ok' : 'err');
+    } catch(e) { showStatus('Could not reach the webhook: ' + e.message, 'err'); }
   }
 
   async function submitForm() {
     const webhookUrl = document.getElementById('webhook-url').value.trim();
     if (!webhookUrl) { showStatus('Please enter the webhook URL.', 'err'); return; }
     const btn = document.getElementById('submit-btn');
-    btn.disabled = true;
-    showStatus('Sending…', 'load');
+    btn.disabled = true; showStatus('Sending…', 'load');
     try {
       if (activeTab === 'upload') {
         if (!selectedFiles.length) { showStatus('Please select at least one file.', 'err'); btn.disabled = false; return; }
@@ -425,8 +275,7 @@
       } else {
         const folderPath = document.getElementById('folder-path').value.trim() || '/artemis_input';
         const r = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method: 'POST', headers: {'Content-Type':'application/json'},
           body: JSON.stringify({
             folder_path: folderPath,
             'ARTEMIS partner/responsible person for the upload of the data': document.getElementById('partner-name').value.trim(),
@@ -436,12 +285,9 @@
         if (r.ok) showStatus('✓ Request sent. N8N is now processing folder: ' + folderPath, 'ok');
         else showStatus('Server error: HTTP ' + r.status, 'err');
       }
-    } catch (e) {
-      showStatus('Network error: ' + e.message, 'err');
-    }
+    } catch(e) { showStatus('Network error: ' + e.message, 'err'); }
     btn.disabled = false;
   }
 </script>
-
 </body>
 </html>

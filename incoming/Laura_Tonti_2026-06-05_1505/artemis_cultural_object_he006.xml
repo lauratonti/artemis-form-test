@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<artemis_cultural_object>
+
+  <object_id>artemis_he_005</object_id>
+  <object_label>Bronze Tripod Basin</object_label>
+  <object_name>Bronze Tripod Basin from Oria (Inventory n. 2726, Museo Sigismondo Castromediano, Lecce)</object_name>
+  <object_description>A bronze tripod basin dating to the late 7th century BC, originating from Oria, one of the most important fortified Messapian cities in Southern Italy. The artefact is characterised by a deep hemispherical vessel supported by three elongated legs with distinctive double-loop attachments, a structural feature typical of Etruscan craftsmanship. Stylistic and typological analysis links the basin to productions from the Etruscan city of Vetulonia, suggesting its inclusion in a broader distribution network extending from central-northern Etruria to the southern Adriatic regions. Although the exact context of discovery is uncertain, the excellent state of preservation suggests a possible funerary origin; however, the presence of a nearby sanctuary on Monte Papalucio, dedicated to a female deity comparable to Persephone and associated with votive offerings and sacrificial remains, introduces alternative interpretations related to ritual or sacred use. The basin represents a significant example of cross-cultural interaction between Etruscan and Messapian civilisations, providing valuable insight into trade networks, technological practices and symbolic functions of bronze artefacts in the early Iron Age Mediterranean context. The object shows visible signs of surface corrosion, a common condition for metal artefacts of this age. Bronze objects are particularly sensitive to relative humidity, temperature fluctuations and light exposure, all of which can accelerate oxidation and lead to material degradation. Dimensions: height 31 cm, diameter 22.5 cm.</object_description>
+  <object_external_uri></object_external_uri>
+
+  <object_types>
+    <type>
+      <type_label>tripod vessels</type_label>
+      <type_uri></type_uri>
+    </type>
+    <type>
+      <type_label>basins (vessels)</type_label>
+      <type_uri></type_uri>
+    </type>
+  </object_types>
+
+  <object_materials>
+    <material>
+      <material_label>bronze</material_label>
+      <material_uri></material_uri>
+    </material>
+  </object_materials>
+
+  <object_images/>
+
+  <object_current_owners>
+    <owner>
+      <owner_name>Museo Sigismondo Castromediano</owner_name>
+      <owner_type>Group</owner_type>
+      <owner_uri></owner_uri>
+      <owner_email></owner_email>
+      <owner_homepage></owner_homepage>
+      <owner_note>The museum is managed by the Apulia Region. A Cooperation Agreement between the pilot leader SEL and the Apulia Region has been formalised to support the pilot activities.</owner_note>
+    </owner>
+  </object_current_owners>
+
+  <object_makers>
+    <maker>
+      <maker_name>Etruscan craftsmen (attributed, Vetulonia)</maker_name>
+      <maker_type>Group</maker_type>
+      <maker_uri></maker_uri>
+      <maker_email></maker_email>
+      <maker_homepage></maker_homepage>
+      <maker_note>Stylistic and typological analysis links the basin to productions from the Etruscan city of Vetulonia. No individual maker is documented.</maker_note>
+    </maker>
+  </object_makers>
+
+  <object_production_periods>
+    <period>
+      <period_label>Late Orientalising Period - Southern Italy</period_label>
+      <period_start_year>-700</period_start_year>
+      <period_end_year>-600</period_end_year>
+      <period_o_uri></period_o_uri>
+    </period>
+  </object_production_periods>
+
+  <object_current_location>
+    <location_name>Museo Sigismondo Castromediano, Lecce, Apulia, Italy</location_name>
+    <location_id></location_id>
+    <location_country_name>Italy</location_country_name>
+    <location_country_uri></location_country_uri>
+    <location_latitude>40.3516</location_latitude>
+    <location_longitude>18.1719</location_longitude>
+  </object_current_location>
+
+  <object_provenance>
+    <provenance_event>
+      <provenance_label>Discovery at Oria (Messapian territory, Apulia)</provenance_label>
+      <provenance_type>archaeological find</provenance_type>
+      <provenance_start_year></provenance_start_year>
+      <provenance_end_year></provenance_end_year>
+      <provenance_actors/>
+    </provenance_event>
+  </object_provenance>
+
+  <object_datasets/>
+
+</artemis_cultural_object>

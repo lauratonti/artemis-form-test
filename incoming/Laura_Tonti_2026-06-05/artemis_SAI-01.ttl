@@ -1,0 +1,94 @@
+@prefix crmhs: <http://vast-lab.org/crmhs/> .
+@prefix artemis: <https://artemis-twin.eu/entity/> .
+@prefix aocat: <https://www.ariadne-infrastructure.eu/resource/ao/cat/1.1/> .
+@prefix geonames: <https://www.geonames.org/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix ariadne: <https://ariadne-infrastructure.eu/aocat/Resource/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix viaf:  <http://viaf.org/viaf/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix ulan:  <http://vocab.getty.edu/ulan/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix aat:   <http://vocab.getty.edu/aat/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lexvo: <http://lexvo.org/id/iso639-2/> .
+@prefix perio: <http://n2t.net/ark:/99152/> .
+@prefix crmpe: <http://parthenos.d4science.org/CRMext/CRMpe/> .
+@prefix rhdto: <http://vast-lab.org/rhdto/> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<urn:uuid:7b03e695-e09f-44dd-995a-8395a68f0fdb>
+        a                crm:E31_Document ;
+        rdfs:label       "ARTEMIS Project Deliverable D11.1, Section 8.6.1 — Smart Display Case (SAI-01)" ;
+        crm:P2_has_type  "Technical Specification" .
+
+<https://artemis-twin.eu/entity/service/artemis_SAI-01>
+        a                             rhdto:HC21_Digital_Service ;
+        rdfs:label                    "Smart Display Case" ;
+        rhdto:HP30_provided_by        <urn:uuid:e517bbc0-de6d-4abf-a784-13de72854872> ;
+        crm:P102_has_title            <urn:uuid:9b4c197d-fef7-4b42-9eb7-296253507b19> ;
+        crm:P103_was_intended_for     <urn:uuid:4639e8a7-bb49-4ecb-b059-3e4abfcad9a6> , <urn:uuid:6c817bf4-6198-416d-ae3e-a8be6c5110a7> , <urn:uuid:141939e3-7be0-4a86-b280-792ef32d3755> ;
+        crm:P125_used_object_of_type  "HC11 Actuator — Controlled access actuator" , "HC9 Sensor — Light sensor" , "HC9 Sensor — Anti-tampering sensor (access detection)" , "HC11 Actuator — Environmental regulation actuator" , "HC9 Sensor — Temperature sensor" , "HC9 Sensor — Humidity sensor" , "HC25 Node (Wi-Fi-enabled microcontroller unit)" ;
+        crm:P2_has_type               <urn:uuid:8e9ba217-0ce0-41e2-9b35-5eb13075aa26> ;
+        crm:P3_has_note               "The Smart Display Case is a custom-designed protective enclosure developed for the preventive conservation of sensitive cultural heritage artefacts and integrated with the ARTEMIS framework. The display case integrates a remotely controllable glass lifting mechanism, and is equipped with environmental and security sensors, as well as actuators defined within the project, enabling continuous monitoring and automated regulation of internal microclimatic conditions. Through its integration with the ARTEMIS IoCT services, the physical case operates as the tangible component of the RHDT. From a hardware perspective, the Smart Display Case consists of a hydro-resistant MDF and is equipped with 3+3 extra-clear laminated glass panels, an integrated remote lifting mechanism and a set of embedded IoT sensors and actuators. These include environmental sensors (e.g. temperature, humidity, light), anti-tampering sensors (e.g. access detection) and actuators for environmental regulation or controlled access. The system includes Wi-Fi-enabled microcontroller units that manage sensor data acquisition and actuator control, ensuring secure communication with the ARTEMIS infrastructure. The internal exhibition space has the following dimensions: Width 700 mm, Height 500 mm, Depth 500 mm." ;
+        crm:P70i_is_documented_in     <urn:uuid:7b03e695-e09f-44dd-995a-8395a68f0fdb> ;
+        aocat:has_functionality       <urn:uuid:3e20330c-ff26-49dc-b1f7-125cadda6688> , <urn:uuid:6a158606-2593-4590-80d5-ee62392e214d> , <urn:uuid:d2356f21-dc38-44a3-94b3-bb1a6520543b> , <urn:uuid:8e9ba217-0ce0-41e2-9b35-5eb13075aa26> , <urn:uuid:152ebf50-a269-4cad-921b-0a164fd096b7> , <urn:uuid:f25ab7b6-dbda-4b86-ac69-f3769d8e07cb> , <urn:uuid:aceccc34-4c80-404c-b253-fe37c47754bc> ;
+        aocat:has_technical_support   <urn:uuid:3731f558-69bb-4d6c-8716-9de78a4398fa> .
+
+<urn:uuid:152ebf50-a269-4cad-921b-0a164fd096b7>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Anti-tampering and access detection" .
+
+<urn:uuid:9b4c197d-fef7-4b42-9eb7-296253507b19>
+        a           crm:E35_Title ;
+        rdfs:label  "Smart Display Case" .
+
+<urn:uuid:f25ab7b6-dbda-4b86-ac69-f3769d8e07cb>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Continuous environmental monitoring (temperature, humidity, light)" .
+
+<urn:uuid:8e9ba217-0ce0-41e2-9b35-5eb13075aa26>
+        a           aocat:AO_Concept , crm:E55_Type ;
+        rdfs:label  "Environmental Monitoring" .
+
+<urn:uuid:d2356f21-dc38-44a3-94b3-bb1a6520543b>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Automated regulation of internal microclimatic conditions" .
+
+<urn:uuid:e517bbc0-de6d-4abf-a784-13de72854872>
+        a               aocat:AO_Agent , crm:E39_Actor ;
+        rdfs:label      "SEL" ;
+        aocat:has_name  "SEL" .
+
+<urn:uuid:6c817bf4-6198-416d-ae3e-a8be6c5110a7>
+        a           crm:E55_Type ;
+        rdfs:label  "Museum curators" .
+
+<urn:uuid:3731f558-69bb-4d6c-8716-9de78a4398fa>
+        a       crm:E39_Actor , aocat:AO_Agent .
+
+<urn:uuid:3e20330c-ff26-49dc-b1f7-125cadda6688>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Operation as tangible component of the RHDT" .
+
+<urn:uuid:141939e3-7be0-4a86-b280-792ef32d3755>
+        a           crm:E55_Type ;
+        rdfs:label  "Conservators" .
+
+<urn:uuid:aceccc34-4c80-404c-b253-fe37c47754bc>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Secure communication with ARTEMIS infrastructure" .
+
+<urn:uuid:4639e8a7-bb49-4ecb-b059-3e4abfcad9a6>
+        a           crm:E55_Type ;
+        rdfs:label  "Technical personnel" .
+
+<urn:uuid:6a158606-2593-4590-80d5-ee62392e214d>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Remote controllable glass lifting mechanism" .

@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<artemis_analysis>
+  <analysis>
+    <heritage_object_artemis_id>https://artemis-twin.eu/entity/artemis_he_004</heritage_object_artemis_id>
+    <analysis_was_performed_on>Madonna dei Fusi (Madonna of the Yarnwinder); Still life (Anonymous, 20th c.)</analysis_was_performed_on>
+    <object_or_area_or_portion_or_sample_analysed>
+      <object_area_sample>
+        <object_area_sample_label>Madonna dei Fusi (Madonna of the Yarnwinder)</object_area_sample_label>
+        <object_area_sample_uri>https://artemis-twin.eu/entity/artemis_he_004</object_area_sample_uri>
+        <object_area_sample_type>Heritage Object</object_area_sample_type>
+      </object_area_sample>
+      <object_area_sample>
+        <object_area_sample_label>Still life (Anonymous, 20th c.)</object_area_sample_label>
+        <object_area_sample_uri>https://artemis-twin.eu/entity/artemis_he_005</object_area_sample_uri>
+        <object_area_sample_type>Heritage Object</object_area_sample_type>
+      </object_area_sample>
+    </object_or_area_or_portion_or_sample_analysed>
+    <analysis_type>Convolutional Neural Network (CNN) signal separation</analysis_type>
+    <analysis_title>Convolutional neural network exploiting pixel surroundings to reveal hidden features in artwork NIR reflectograms</analysis_title>
+    <notes>A computational analysis method based on Convolutional Neural Networks (CNN) to estimate the transfer function from visible spectra (VIS) to Near-Infrared (NIR), removing the visible contribution from NIR reflectograms to enhance hidden features. This analysis processes pre-existing datasets acquired by a CNR-INO scanner.</notes>
+    <time_span>
+      <span>
+        <from>2021</from>
+        <until>2022</until>
+      </span>
+    </time_span>
+    <took_place_at>
+      <place>
+        <place_name>Institute of Information Theory and Automation, Pod Vodárenskou věž 4, Praha, 18000, Czech Republic</place_name>
+        <country>https://www.geonames.org/3077311</country>
+        <place_uri>https://www.geonames.org/3067696</place_uri>
+      </place>
+      <place>
+        <place_name>National Institute of Optics (INO-CNR), Largo Enrico Fermi 6, 50125 Firenze, Italy</place_name>
+        <country>https://www.geonames.org/3175395</country>
+        <place_uri>https://www.geonames.org/10285627</place_uri>
+      </place>
+    </took_place_at>
+    <carried_out_by>
+      <agent>
+        <agent_type>Group</agent_type>
+        <n>Institute of Information Theory and Automation, Academy of Sciences of the Czech Republic</n>
+        <identifier>https://www.utia.cas.cz/</identifier>
+        <homepage>https://www.utia.cas.cz/</homepage>
+      </agent>
+      <agent>
+        <agent_type>Group</agent_type>
+        <n>National Institute of Optics of the National Research Council of Italy (INO-CNR)</n>
+        <identifier>https://www.ino.cnr.it/</identifier>
+        <homepage>https://www.ino.cnr.it/</homepage>
+      </agent>
+    </carried_out_by>
+    <had_participant>
+      <agent>
+        <agent_type>Person</agent_type>
+        <n>Tomáš Karella</n>
+        <identifier>https://orcid.org/0000-0002-8957-308X</identifier>
+        <email>karella@utia.cas.cz</email>
+        <institution>Institute of Information Theory and Automation, Academy of Sciences of the Czech Republic</institution>
+      </agent>
+      <agent>
+        <agent_type>Person</agent_type>
+        <n>Jan Blažek</n>
+        <identifier>https://orcid.org/0000-0002-2321-4322</identifier>
+        <institution>Institute of Information Theory and Automation, Academy of Sciences of the Czech Republic</institution>
+      </agent>
+      <agent>
+        <agent_type>Person</agent_type>
+        <n>Jana Striová</n>
+        <identifier>https://orcid.org/0000-0003-0790-4689</identifier>
+        <institution>National Institute of Optics of the National Research Council of Italy (INO-CNR)</institution>
+      </agent>
+    </had_participant>
+    <used_method>
+      <method>
+        <method_name>Convolutional Neural Network (CNN) signal separation</method_name>
+        <method_notes>A method based on Convolutional Neural Networks (CNN) to estimate the transfer function from visible spectra (VIS) to Near-Infrared (NIR), removing the visible contribution from NIR reflectograms to enhance hidden features.</method_notes>
+      </method>
+    </used_method>
+    <used_device>
+      <device>
+        <device_name>INO-CNR VIS-NIR Multispectral Scanner</device_name>
+        <model>Custom-built multispectral scanner (32 bands, 380-2500 nm)</model>
+        <maker>
+          <agent_type>Group</agent_type>
+          <n>National Institute of Optics (INO-CNR)</n>
+        </maker>
+        <current_owner>
+          <agent_type>Group</agent_type>
+          <n>National Institute of Optics of the National Research Council of Italy (INO-CNR)</n>
+          <identifier>https://www.ino.cnr.it/</identifier>
+        </current_owner>
+      </device>
+    </used_device>
+    <used_components>
+      <component>
+        <component_name>VIS-NIR Photodetectors (Si and InGaAs)</component_name>
+        <model>16 Si and 16 InGaAs photodiodes</model>
+        <maker>Unknown</maker>
+        <current_owner>National Institute of Optics of the National Research Council of Italy (INO-CNR)</current_owner>
+      </component>
+      <component>
+        <component_name>Illumination System</component_name>
+        <model>Halogen lamps and/or LEDs</model>
+        <maker>Unknown</maker>
+        <current_owner>National Institute of Optics of the National Research Council of Italy (INO-CNR)</current_owner>
+      </component>
+    </used_components>
+    <used_software>
+      <software>
+        <software_name>Convolutional Neural Network (CNN) Model (Karella et al. 2022)</software_name>
+        <software_notes>Custom CNN model designed to estimate NIR response from VIS spectra pixel surroundings. Architecture: 4 CNN layers, 25 filters each, 3x3 kernel size, sigmoid activation.</software_notes>
+      </software>
+    </used_software>
+    <used_settings>
+      <settings>
+        <setting_values>
+          <setting_value>Input data: 16 VIS bands, 1 NIR band (1730nm for Still Life, 950nm for Madonna)</setting_value>
+          <setting_value>Input patch size (surroundings): 9x9 pixels</setting_value>
+          <setting_value>Training samples per artwork: 2500 randomly chosen pixels</setting_value>
+          <setting_value>CNN Architecture: 4 layers, 25 filters/layer, 3x3 kernel, sigmoid activation</setting_value>
+          <setting_value>Loss Function: Mean Square Error (MSE)</setting_value>
+        </setting_values>
+        <specified_in>https://doi.org/10.1016/j.culher.2022.09.022</specified_in>
+      </settings>
+    </used_settings>
+    <produced_dataset>
+      <dataset>
+        <dataset_title>Convolutional neural network exploiting pixel surroundings to reveal hidden features in artwork NIR reflectograms</dataset_title>
+        <dataset_url>https://doi.org/10.1016/j.culher.2022.09.022</dataset_url>
+        <dataset_type>Scientific paper</dataset_type>
+      </dataset>
+    </produced_dataset>
+  </analysis>
+</artemis_analysis>

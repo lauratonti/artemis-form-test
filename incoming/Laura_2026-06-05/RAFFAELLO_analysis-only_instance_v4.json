@@ -1,0 +1,269 @@
+{
+  "analysis": {
+    "heritage_object_artemis_id": "https://artemis-twin.eu/entity/artemis_he_002",
+
+    "analysis_was_performed_on": "Portrait of Leo X with two cardinals by Raffaello Sanzio (Uffizi Galleries, Florence)",
+
+    "object/area/sample_analysed": [
+      {
+        "object/area/sample_label": "Portrait of Leo X with two cardinals — full painted surface",
+        "object/area/sample_uri": "https://artemis-twin.eu/entity/artemis_he_002",
+        "object/area/sample_type": "Heritage Object"
+      },
+      {
+        "object/area/sample_label": "Cardinal robe — red pigment area (scan area B)",
+        "object/area/sample_uri": "https://artemis-twin.eu/entity/leoX_area_B",
+        "object/area/sample_type": "Area"
+      },
+      {
+        "object/area/sample_label": "Pope Leo X cassock — bismuth black layer",
+        "object/area/sample_uri": "https://artemis-twin.eu/entity/leoX_portion_cassock",
+        "object/area/sample_type": "Portion"
+      },
+      {
+        "object/area/sample_label": "Paint micro-fragment CS-LeoX-01",
+        "object/area/sample_uri": "https://artemis-twin.eu/entity/leoX_sample_CS01",
+        "object/area/sample_type": "Sample"
+      }
+    ],
+
+    "analysis_type": "MA-XRF",
+
+    "analysis_title": "Mapping with Macro X-ray Fluorescence Scanning of Raffaello's Portrait of Leo X",
+
+    "notes": "MA-XRF analysis carried out on the Portrait of Leo X by Raffaello Sanzio, belonging to the collection of the Uffizi Galleries. The campaign aimed to study in detail the painting palette and technique employed by Raffaello, contextualising the results with other works by the artist. The analysis was performed before the painting's loan to the exhibition at the Scuderie del Quirinale in Rome for the 500th anniversary of the death of Raffaello (2020), during conservation treatments at the Opificio delle Pietre Dure, Florence. Several scans were performed for the almost full mapping of the painting; some areas could not be reached due to the dimensions and weight of the painting and the encumbrance of the easel.",
+
+    "time_span": {
+      "from": "2020",
+      "until": "2020"
+    },
+
+    "took_place_at": {
+      "place_name": "Opificio delle Pietre Dure, Florence, Italy",
+      "country": "https://www.geonames.org/3175395",
+      "place_uri": "https://www.wikidata.org/wiki/Q1135334"
+    },
+
+    "carried_out_by": [
+      {
+        "agent_type": "Person",
+        "name": "Anna Mazzinghi",
+        "email": "mazzinghi@fi.infn.it",
+        "identifier": "https://orcid.org/0000-0001-5468-7619",
+        "institution": "Department of Physics and Astronomy, University of Florence / Florence Division, INFN/CHNet, Sesto Fiorentino, Florence, Italy"
+      },
+      {
+        "agent_type": "Person",
+        "name": "Chiara Ruberto",
+        "identifier": "https://orcid.org/0000-0002-3811-4500",
+        "institution": "Department of Physics and Astronomy, University of Florence / Florence Division, INFN/CHNet, Sesto Fiorentino, Florence, Italy"
+      },
+      {
+        "agent_type": "Person",
+        "name": "Lorenzo Giuntini",
+        "identifier": "https://orcid.org/0000-0003-4563-2709",
+        "institution": "Department of Physics and Astronomy, University of Florence / Florence Division, INFN/CHNet, Sesto Fiorentino, Florence, Italy"
+      },
+      {
+        "agent_type": "Person",
+        "name": "Pier Andrea Mandò",
+        "institution": "Department of Physics and Astronomy, University of Florence / Florence Division, INFN/CHNet, Sesto Fiorentino, Florence, Italy"
+      },
+      {
+        "agent_type": "Person",
+        "name": "Francesco Taccetti",
+        "institution": "Florence Division, INFN/CHNet, Sesto Fiorentino, Florence, Italy"
+      },
+      {
+        "agent_type": "Person",
+        "name": "Lisa Castelli",
+        "institution": "Florence Division, INFN/CHNet, Sesto Fiorentino, Florence, Italy"
+      }
+    ],
+
+    "had_participant": [
+      {
+        "agent_type": "Group",
+        "name": "Opificio delle Pietre Dure (OPD)",
+        "homepage": "https://www.opificiodellepietredure.it"
+      },
+      {
+        "agent_type": "Group",
+        "name": "Gallerie degli Uffizi",
+        "homepage": "https://www.uffizi.it"
+      }
+    ],
+
+    "used_method": {
+      "method_name": "Macro X-ray Fluorescence Scanning (MA-XRF)",
+      "method_notes": "MA-XRF is a mapping technique derived from X-ray fluorescence (XRF) that provides elemental distribution maps across the surface of a painting in a non-invasive and non-destructive manner. It allows identification and spatial mapping of pigments and materials based on detected elements."
+    },
+
+    "used_protocol": {
+      "protocol_name": "In situ MA-XRF scanning protocol (INFN-CHNet)",
+      "protocol_notes": "The instrument was operated in situ at the Opificio delle Pietre Dure. Multiple overlapping scans were performed to achieve almost full mapping of the painting surface. A telemeter (Keyence IA-100) provided continuous control and adjustment of the sample–instrument distance during scanning."
+    },
+
+    "used_device": {
+      "device_name": "INFN-CHNet MA-XRF Scanner",
+      "model": "INFN-CHNet portable MA-XRF scanner (custom build)",
+      "maker": {
+        "agent_type": "Group",
+        "name": "Cultural Heritage Network of the Italian National Institute of Nuclear Physics (INFN-CHNet)",
+        "identifier": "https://www.chnet.infn.it"
+      },
+      "current_owner": {
+        "agent_type": "Group",
+        "name": "INFN/CHNet, Florence Division",
+        "identifier": "https://www.fi.infn.it"
+      }
+    },
+
+    "used_components": [
+      {
+        "component_name": "X-ray tube",
+        "model": "Moxtek (40 kV maximum voltage, 0.1 mA maximum anode current, Mo anode)",
+        "maker": "Moxtek"
+      },
+      {
+        "component_name": "Silicon drift detector",
+        "model": "Amptek XR100 SDD (25 mm² effective active surface, 500 µm thickness)",
+        "maker": "Amptek"
+      },
+      {
+        "component_name": "Telemeter",
+        "model": "Keyence IA-100",
+        "maker": "Keyence"
+      },
+      {
+        "component_name": "Linear motor stages (x, y, z)",
+        "model": "Physik Instrumente — 200 mm travel range in x and y directions, 50 mm stage along z",
+        "maker": "Physik Instrumente"
+      },
+      {
+        "component_name": "Signal digitizer",
+        "model": "CAEN DT5780",
+        "maker": "CAEN"
+      }
+    ],
+
+    "used_software": [
+      {
+        "software_name": "INFN-CHNet in-house MA-XRF instrument control and data analysis software",
+        "software_type": "Instrument control and data analysis",
+        "software_notes": "In-house developed software used for instrument control and data analysis. Developed with contributions from Lara Palla and Caroline Czelusniak."
+      },
+      {
+        "software_name": "PyMCA",
+        "software_type": "XRF spectral analysis",
+        "software_notes": "Open-source software for X-ray fluorescence data analysis, used for elemental map processing and spectral fitting."
+      }
+    ],
+
+    "used_settings": {
+      "setting_values": [
+        "X-ray tube anode voltage: 30 kV",
+        "Filament current: 90 µA",
+        "Anode material: Mo",
+        "Collimator diameter: 800 µm",
+        "Scanning velocity: 10 mm/s",
+        "Equivalent pixel size: 1 mm"
+      ],
+      "specified_in": "https://doi.org/10.3390/heritage5040205"
+    },
+
+    "used_dataset": [
+      {
+        "dataset_title": "IntCal20 atmospheric radiocarbon calibration curve",
+        "dataset_url": "https://doi.org/10.1017/RDC.2020.41",
+        "dataset_type": "Calibration data"
+      },
+      {
+        "dataset_title": "INFN-CHNet reference XRF spectra library — pigments",
+        "dataset_url": "https://www.chnet.infn.it/data/reference-spectra",
+        "dataset_type": "Reference spectra"
+      }
+    ],
+
+    "sample_preparation": {
+      "preparation_notes": "No physical sample preparation was required for the MA-XRF campaign, as the technique is fully non-invasive. The painting surface was visually inspected prior to scanning to identify accessible areas and define the scan grid. For the micro-fragment CS-LeoX-01, standard mounting in epoxy resin and polishing were performed before SEM-EDX analysis.",
+      "prepared_sample_name": "Paint micro-fragment CS-LeoX-01 (mounted cross-section)",
+      "prepared_sample_uri": "https://artemis-twin.eu/entity/leoX_sample_CS01_prepared",
+      "used_method": "Epoxy resin embedding and mechanical polishing",
+      "used_protocol": "OPD standard cross-section preparation protocol v2.1"
+    },
+
+    "study_object_sample": {
+      "sample_name": "Paint micro-fragment CS-LeoX-01",
+      "sample_uri": "https://artemis-twin.eu/entity/leoX_sample_CS01",
+      "taken_from": "Portrait of Leo X with two cardinals by Raffaello Sanzio (Uffizi Galleries, Florence)",
+      "taken_from_uri": "https://artemis-twin.eu/entity/artemis_he_002",
+      "taken_from_area": "Cardinal robe — lower left corner sampling point",
+      "taken_from_area_uri": "https://artemis-twin.eu/entity/leoX_area_sampling_point_01"
+    },
+
+    "study_object_portion": {
+      "portion_name": "Pope Leo X cassock — bismuth black layer",
+      "portion_uri": "https://artemis-twin.eu/entity/leoX_portion_cassock",
+      "forms_part_of": "Portrait of Leo X with two cardinals by Raffaello Sanzio (Uffizi Galleries, Florence)",
+      "forms_part_of_uri": "https://artemis-twin.eu/entity/artemis_he_002",
+      "is_located_within": "Central figure scan area (scan area C)",
+      "is_located_within_uri": "https://artemis-twin.eu/entity/leoX_area_C"
+    },
+
+    "study_object_area": {
+      "area_name": "Almost full painting surface — MA-XRF scanned region",
+      "area_uri": "https://artemis-twin.eu/entity/leoX_scanned_area",
+      "area_of_interest_on": "Portrait of Leo X with two cardinals by Raffaello Sanzio (Uffizi Galleries, Florence)",
+      "area_of_interest_on_uri": "https://artemis-twin.eu/entity/artemis_he_002",
+      "object_surface_coordinates": "x: 0–1530 mm, y: 0–1190 mm (from top-left corner; peripheral strips excluded due to easel constraints)"
+    },
+
+    "sub_activities": [
+      {
+        "sub_activity_title": "MA-XRF scan — upper panel (scan area A)",
+        "sub_activity_type": "Analysis",
+        "sub_activity_uri": "https://artemis-twin.eu/entity/leoX_scan_A"
+      },
+      {
+        "sub_activity_title": "MA-XRF scan — lower panel (scan area B)",
+        "sub_activity_type": "Analysis",
+        "sub_activity_uri": "https://artemis-twin.eu/entity/leoX_scan_B"
+      },
+      {
+        "sub_activity_title": "MA-XRF scan — central figure detail (scan area C)",
+        "sub_activity_type": "Analysis",
+        "sub_activity_uri": "https://artemis-twin.eu/entity/leoX_scan_C"
+      },
+      {
+        "sub_activity_title": "Cross-section preparation of micro-fragment CS-LeoX-01",
+        "sub_activity_type": "Sample Preparation",
+        "sub_activity_uri": "https://artemis-twin.eu/entity/leoX_prep_CS01"
+      }
+    ],
+
+    "produced_dataset": [
+      {
+        "dataset_title": "Mapping with Macro X-ray Fluorescence Scanning of Raffaello's Portrait of Leo X",
+        "dataset_url": "https://doi.org/10.3390/heritage5040205",
+        "dataset_type": "Scientific paper",
+        "created_using_software": "INFN-CHNet in-house MA-XRF instrument control and data analysis software",
+        "created_using_software_uri": "https://artemis-twin.eu/entity/software_infn_maxrf"
+      },
+      {
+        "dataset_title": "MA-XRF elemental distribution maps — Portrait of Leo X (Pb, Hg, Cu, Fe, Mn, Bi)",
+        "dataset_url": "https://artemis-twin.eu/data/leoX_maxrf_elemental_maps",
+        "dataset_type": "Elemental distribution map",
+        "created_using_software": "PyMCA",
+        "created_using_software_uri": "https://www.silx.org/doc/PyMca"
+      },
+      {
+        "dataset_title": "MA-XRF raw scan data — Portrait of Leo X",
+        "dataset_url": "https://artemis-twin.eu/data/leoX_maxrf_raw",
+        "dataset_type": "Raw data",
+        "created_using_software": "INFN-CHNet in-house MA-XRF instrument control and data analysis software",
+        "created_using_software_uri": "https://artemis-twin.eu/entity/software_infn_maxrf"
+      }
+    ]
+  }
+}

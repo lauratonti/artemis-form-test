@@ -1,0 +1,107 @@
+@prefix crmhs: <http://vast-lab.org/crmhs/> .
+@prefix artemis: <https://artemis-twin.eu/entity/> .
+@prefix aocat: <https://www.ariadne-infrastructure.eu/resource/ao/cat/1.1/> .
+@prefix geonames: <https://www.geonames.org/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix ariadne: <https://ariadne-infrastructure.eu/aocat/Resource/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix viaf:  <http://viaf.org/viaf/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix ulan:  <http://vocab.getty.edu/ulan/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix aat:   <http://vocab.getty.edu/aat/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lexvo: <http://lexvo.org/id/iso639-2/> .
+@prefix perio: <http://n2t.net/ark:/99152/> .
+@prefix crmpe: <http://parthenos.d4science.org/CRMext/CRMpe/> .
+@prefix rhdto: <http://vast-lab.org/rhdto/> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<urn:uuid:b355f2e3-e2c5-4020-a2bb-41bd47f0ffb8>
+        a       crm:E39_Actor , aocat:AO_Agent .
+
+<urn:uuid:7c717f6f-a05a-4a51-9fd1-eb361a4a718f>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Real-time monitoring and control of Smart Display Case via Digital Twin" .
+
+<urn:uuid:3d1af04a-8a05-4b99-8bee-45740a2b3f3e>
+        a           crm:E55_Type ;
+        rdfs:label  "Conservators" .
+
+<urn:uuid:121e6734-04ae-4635-b697-1b80ba25bae4>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Definition of automated decision rules" .
+
+<urn:uuid:9cf1983e-1a40-402d-8d77-ee7d0534f0c3>
+        a                crm:E31_Document ;
+        rdfs:label       "ARTEMIS Project Deliverable D11.1, Section 8.2.6 — ARTEMIS IoT Viewer (CAW-06)" ;
+        crm:P2_has_type  "Technical Specification" .
+
+<urn:uuid:80249533-014f-48a3-a362-740211de7729>
+        a           aocat:AO_Concept ;
+        rdfs:label  "3D model visualisation of the heritage asset" .
+
+<urn:uuid:b9226c4c-0f9e-4f31-a488-29ac525bf861>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Monitoring of environmental parameters" .
+
+<urn:uuid:b5786338-7fdd-4813-bbd5-134318fa67e2>
+        a           crm:E7_Activity ;
+        rdfs:label  "Conservation Data Analysis and Dashboard Visualisation — Pilot 4 Smart Display Case (artemis_op_04_03)" .
+
+<urn:uuid:0d61d5a7-416e-4525-aaf9-0b5e969a2d75>
+        a           crm:E35_Title ;
+        rdfs:label  "ARTEMIS IoT Viewer" .
+
+<urn:uuid:9ff74b4d-cfa9-4b4e-a536-033221f02505>
+        a           crm:E55_Type ;
+        rdfs:label  "Museum curators" .
+
+<urn:uuid:2013c05a-a40a-470a-a5f2-d8a2b5eadd93>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Centralised dashboard for real-time data visualisation and historical analysis" .
+
+<urn:uuid:ddef55bb-9e6e-477e-903f-9f5c0b578dd9>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Configuration of IoT sensors and actuators" .
+
+<urn:uuid:a76f6d47-7c70-4812-8f8b-574a8eac8d12>
+        a           crm:E7_Activity ;
+        rdfs:label  "Real-Time Digital Twin Synchronisation — Pilot 4 Smart Display Case (artemis_op_04_02)" .
+
+<urn:uuid:9b167580-8eec-47f3-8a0d-193d426cd84e>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Manual override of system controls" .
+
+<urn:uuid:c7dc7c5e-b84e-41d1-ba2b-3d3e03af1b10>
+        a           aocat:AO_Concept ;
+        rdfs:label  "Communication with ARTEMIS IoT Gateway via REST APIs" .
+
+<urn:uuid:a5fb6ebf-34b9-4e4c-9dc8-d71d32cb6dba>
+        a               aocat:AO_Agent , crm:E39_Actor ;
+        rdfs:label      "SEL" ;
+        aocat:has_name  "SEL" .
+
+<urn:uuid:8b71f560-41d1-44f1-b298-f3258fa892b8>
+        a           aocat:AO_Concept , crm:E55_Type ;
+        rdfs:label  "Data Visualization" .
+
+<https://artemis-twin.eu/entity/service/artemis_CAW-06>
+        a                             rhdto:HC21_Digital_Service ;
+        rdfs:label                    "ARTEMIS IoT Viewer" ;
+        rhdto:HP30_provided_by        <urn:uuid:a5fb6ebf-34b9-4e4c-9dc8-d71d32cb6dba> ;
+        crm:P102_has_title            <urn:uuid:0d61d5a7-416e-4525-aaf9-0b5e969a2d75> ;
+        crm:P103_was_intended_for     <urn:uuid:3d1af04a-8a05-4b99-8bee-45740a2b3f3e> , <urn:uuid:9ff74b4d-cfa9-4b4e-a536-033221f02505> ;
+        crm:P125_used_object_of_type  "HC9 Sensor — Environmental sensor" , "HC9 Sensor — Anti-tampering sensor" , "HC25 Node (Wi-Fi-enabled microcontroller unit)" , "HC11 Actuator" ;
+        crm:P16i_was_used_for         <urn:uuid:b5786338-7fdd-4813-bbd5-134318fa67e2> , <urn:uuid:a76f6d47-7c70-4812-8f8b-574a8eac8d12> ;
+        crm:P2_has_type               <urn:uuid:8b71f560-41d1-44f1-b298-f3258fa892b8> ;
+        crm:P3_has_note               "The ARTEMIS IoT Viewer is developed by SEL and is a Web-based application that enables real-time monitoring and control of the Smart Display Case through the Digital Twin. The IoT Viewer allows users to visualise the 3D model of the asset, configure IoT sensors and actuators in the scene, monitor environmental parameters, define automated decision rules and perform manual overrides when necessary. The Viewer communicates with the ARTEMIS IoT Gateway via REST APIs, ensuring continuous synchronisation between the physical case and its digital representation. It provides curators and conservators with a clear and centralised dashboard for real-time data visualisation and historical analysis. The Viewer requires the ARTEMIS IoT Gateway exposing REST microservices and a hybrid data infrastructure composed of the ARTEMIS Triple Store and an IoT Time-Series database. Secure authentication services and WebGL-compatible browsers are necessary to ensure controlled access and 3D visualisation capabilities." ;
+        crm:P70i_is_documented_in     <urn:uuid:9cf1983e-1a40-402d-8d77-ee7d0534f0c3> ;
+        aocat:has_functionality       <urn:uuid:7c717f6f-a05a-4a51-9fd1-eb361a4a718f> , <urn:uuid:9b167580-8eec-47f3-8a0d-193d426cd84e> , <urn:uuid:80249533-014f-48a3-a362-740211de7729> , <urn:uuid:c7dc7c5e-b84e-41d1-ba2b-3d3e03af1b10> , <urn:uuid:2013c05a-a40a-470a-a5f2-d8a2b5eadd93> , <urn:uuid:b9226c4c-0f9e-4f31-a488-29ac525bf861> , <urn:uuid:8b71f560-41d1-44f1-b298-f3258fa892b8> , <urn:uuid:ddef55bb-9e6e-477e-903f-9f5c0b578dd9> , <urn:uuid:121e6734-04ae-4635-b697-1b80ba25bae4> ;
+        aocat:has_technical_support   <urn:uuid:b355f2e3-e2c5-4020-a2bb-41bd47f0ffb8> .

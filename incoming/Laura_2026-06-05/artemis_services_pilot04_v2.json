@@ -1,0 +1,128 @@
+[
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://vast-lab.org/artemis/schema/digital-service-form",
+    "service_id": "artemis_BEDP-09",
+    "title": "IoT Services",
+    "service_type": "Environmental Monitoring",
+    "description": "The IoT service uses the physical installation of IoT nodes with sensors to collect data. Specifically, the sensors measure temperature, humidity, light, ground movements and microvegetation. IoT nodes are housed in a box measuring 120x80x75 mm, containing an electronic board designed and developed by SEL, which uses an Arduino Nano 33 IoT as the microprocessor. Environmental sensors are produced by third-party manufacturers and purchased by SEL. A solution with a solar panel is designed to ensure power supply to both the nodes and the sensors. The data acquisition and transmission software is developed by SEL and made compliant with the ARTEMIS infrastructure. Sensor data is collected and transmitted to the ARTEMIS cloud-based infrastructure to be stored in a dedicated NoSQL database, using both RESTful services (ARTEMIS IoT Microservices) and the MQTT protocol for efficient, low-latency publish-subscribe communication.",
+    "provided_by": {
+      "agent_type": "Group",
+      "name": "SEL"
+    },
+    "intended_for": [
+      "Conservators",
+      "Museum curators"
+    ],
+    "used_for": [
+      {
+        "activity_label": "IoT Environmental and Security Monitoring — Pilot 4 Smart Display Case (artemis_op_04_01)"
+      }
+    ],
+    "used_physical_object_of_type": [
+      "HC25 Node (IoT node with Arduino Nano 33 IoT microprocessor)",
+      "HC9 Sensor — Temperature sensor",
+      "HC9 Sensor — Humidity sensor",
+      "HC9 Sensor — Light sensor",
+      "HC9 Sensor — Ground movement sensor"
+    ],
+    "has_functionality": [
+      "Environmental data acquisition via IoT sensors",
+      "Data transmission via MQTT protocol",
+      "Data transmission via RESTful services (ARTEMIS IoT Microservices)",
+      "Data storage in ARTEMIS cloud-based NoSQL database"
+    ],
+    "documentation": [
+      {
+        "doc_description": "ARTEMIS Project Deliverable D11.1, Section 8.4.9 — IoT Services (BEDP-09)",
+        "doc_type": "Technical Specification"
+      }
+    ]
+  },
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://vast-lab.org/artemis/schema/digital-service-form",
+    "service_id": "artemis_CAW-06",
+    "title": "ARTEMIS IoT Viewer",
+    "service_type": "Data Visualization",
+    "description": "The ARTEMIS IoT Viewer is developed by SEL and is a Web-based application that enables real-time monitoring and control of the Smart Display Case through the Digital Twin. The IoT Viewer allows users to visualise the 3D model of the asset, configure IoT sensors and actuators in the scene, monitor environmental parameters, define automated decision rules and perform manual overrides when necessary. The Viewer communicates with the ARTEMIS IoT Gateway via REST APIs, ensuring continuous synchronisation between the physical case and its digital representation. It provides curators and conservators with a clear and centralised dashboard for real-time data visualisation and historical analysis. The Viewer requires the ARTEMIS IoT Gateway exposing REST microservices and a hybrid data infrastructure composed of the ARTEMIS Triple Store and an IoT Time-Series database. Secure authentication services and WebGL-compatible browsers are necessary to ensure controlled access and 3D visualisation capabilities.",
+    "provided_by": {
+      "agent_type": "Group",
+      "name": "SEL"
+    },
+    "intended_for": [
+      "Museum curators",
+      "Conservators"
+    ],
+    "used_for": [
+      {
+        "activity_label": "Real-Time Digital Twin Synchronisation — Pilot 4 Smart Display Case (artemis_op_04_02)"
+      },
+      {
+        "activity_label": "Conservation Data Analysis and Dashboard Visualisation — Pilot 4 Smart Display Case (artemis_op_04_03)"
+      }
+    ],
+    "used_physical_object_of_type": [
+      "HC9 Sensor — Environmental sensor",
+      "HC9 Sensor — Anti-tampering sensor",
+      "HC11 Actuator",
+      "HC25 Node (Wi-Fi-enabled microcontroller unit)"
+    ],
+    "has_functionality": [
+      "Real-time monitoring and control of Smart Display Case via Digital Twin",
+      "3D model visualisation of the heritage asset",
+      "Configuration of IoT sensors and actuators",
+      "Monitoring of environmental parameters",
+      "Definition of automated decision rules",
+      "Manual override of system controls",
+      "Centralised dashboard for real-time data visualisation and historical analysis",
+      "Communication with ARTEMIS IoT Gateway via REST APIs"
+    ],
+    "documentation": [
+      {
+        "doc_description": "ARTEMIS Project Deliverable D11.1, Section 8.2.6 — ARTEMIS IoT Viewer (CAW-06)",
+        "doc_type": "Technical Specification"
+      }
+    ]
+  },
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://vast-lab.org/artemis/schema/digital-service-form",
+    "service_id": "artemis_SAI-01",
+    "title": "Smart Display Case",
+    "service_type": "Environmental Monitoring",
+    "description": "The Smart Display Case is a custom-designed protective enclosure developed for the preventive conservation of sensitive cultural heritage artefacts and integrated with the ARTEMIS framework. The display case integrates a remotely controllable glass lifting mechanism, and is equipped with environmental and security sensors, as well as actuators defined within the project, enabling continuous monitoring and automated regulation of internal microclimatic conditions. Through its integration with the ARTEMIS IoCT services, the physical case operates as the tangible component of the RHDT. From a hardware perspective, the Smart Display Case consists of a hydro-resistant MDF and is equipped with 3+3 extra-clear laminated glass panels, an integrated remote lifting mechanism and a set of embedded IoT sensors and actuators. These include environmental sensors (e.g. temperature, humidity, light), anti-tampering sensors (e.g. access detection) and actuators for environmental regulation or controlled access. The system includes Wi-Fi-enabled microcontroller units that manage sensor data acquisition and actuator control, ensuring secure communication with the ARTEMIS infrastructure. The internal exhibition space has the following dimensions: Width 700 mm, Height 500 mm, Depth 500 mm.",
+    "provided_by": {
+      "agent_type": "Group",
+      "name": "SEL"
+    },
+    "intended_for": [
+      "Museum curators",
+      "Conservators",
+      "Technical personnel"
+    ],
+    "used_physical_object_of_type": [
+      "HC9 Sensor — Temperature sensor",
+      "HC9 Sensor — Humidity sensor",
+      "HC9 Sensor — Light sensor",
+      "HC9 Sensor — Anti-tampering sensor (access detection)",
+      "HC11 Actuator — Environmental regulation actuator",
+      "HC11 Actuator — Controlled access actuator",
+      "HC25 Node (Wi-Fi-enabled microcontroller unit)"
+    ],
+    "has_functionality": [
+      "Continuous environmental monitoring (temperature, humidity, light)",
+      "Anti-tampering and access detection",
+      "Automated regulation of internal microclimatic conditions",
+      "Remote controllable glass lifting mechanism",
+      "Secure communication with ARTEMIS infrastructure",
+      "Operation as tangible component of the RHDT"
+    ],
+    "documentation": [
+      {
+        "doc_description": "ARTEMIS Project Deliverable D11.1, Section 8.6.1 — Smart Display Case (SAI-01)",
+        "doc_type": "Technical Specification"
+      }
+    ]
+  }
+]

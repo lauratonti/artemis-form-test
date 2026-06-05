@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<artemis_pilot>
+  <pilot_id>pilot_04</pilot_id>
+  <pilot_title>Smart display case for CH protection</pilot_title>
+  <pilot_description>Pilot 4 focuses on the design, development, and validation of a Smart Display Case for the protection and monitoring of highly sensitive cultural heritage artefacts in museum environments. The pilot is led by SEL and deploys IoT sensors and actuators integrated with the ARTEMIS platform, enabling real-time environmental monitoring, alert generation, and Digital Twin synchronisation for preventive conservation.</pilot_description>
+  <operations>
+
+    <operation>
+      <operation_id>operation_01</operation_id>
+      <operation_title>IoT Environmental and Security Monitoring</operation_title>
+      <operation_type>Monitoring</operation_type>
+      <general_purpose>Continuous acquisition of environmental and security-related data from the Smart Display Case to support preventive conservation and anomaly detection.</general_purpose>
+      <description>IoT sensors embedded in the Smart Display Case collect time-stamped readings for temperature, relative humidity, illuminance, vibration/shock events, and access events (opening/closing status). Data are transmitted to the ARTEMIS platform via MQTT and RESTful APIs at intervals between 60 seconds and one reading per hour. An edge processing unit (ESP32 or Raspberry Pi) buffers data locally in case of connectivity loss. The operation runs continuously throughout the pilot period.</description>
+      <concerns_heritage_entity>
+        <entity_id>artemis_he_006</entity_id>
+      </concerns_heritage_entity>
+      <inputs>
+        <input>
+          <object_label>Raw temperature readings</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Sensor Measurement</object_class>
+          <access_point></access_point>
+          <notes>Internal ambient temperature inside the display case, measured in °C.</notes>
+        </input>
+        <input>
+          <object_label>Raw relative humidity readings</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Sensor Measurement</object_class>
+          <access_point></access_point>
+          <notes>Moisture levels affecting material stability, measured in %RH.</notes>
+        </input>
+        <input>
+          <object_label>Raw illuminance readings</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Sensor Measurement</object_class>
+          <access_point></access_point>
+          <notes>Light intensity measured in lux, relevant for photodegradable artefacts.</notes>
+        </input>
+        <input>
+          <object_label>Vibration and shock event signals</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Sensor Measurement</object_class>
+          <access_point></access_point>
+          <notes>Motion detection data for anti-tampering analysis.</notes>
+        </input>
+        <input>
+          <object_label>Access event signals</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Sensor Measurement</object_class>
+          <access_point></access_point>
+          <notes>Opening/closing status of the case monitored via magnetic/reed switches.</notes>
+        </input>
+      </inputs>
+      <outputs>
+        <output>
+          <object_label>High-frequency environmental monitoring dataset</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Time-Series Dataset</object_class>
+          <access_point></access_point>
+          <notes>Time-stamped, structured sensor data stored in the ARTEMIS NoSQL database, indexed by artefact ID, time series and case identifier.</notes>
+        </output>
+        <output>
+          <object_label>System performance logs</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Log Dataset</object_class>
+          <access_point></access_point>
+          <notes>Records of system uptime, sensor connectivity and actuator response status.</notes>
+        </output>
+      </outputs>
+      <used_software/>
+      <implemented_using>
+        <service>
+          <service_title>IoT Services</service_title>
+          <service_identifier>artemis_BEDP-09</service_identifier>
+        </service>
+      </implemented_using>
+      <used_parameters>
+        <parameter_set>
+          <parameter_set_label>Environmental stability thresholds</parameter_set_label>
+          <parameter_set_identifier></parameter_set_identifier>
+          <parameter_type>Conservation threshold</parameter_type>
+          <values>
+            <temperature_tolerance_celsius>1.5</temperature_tolerance_celsius>
+            <relative_humidity_tolerance_percent>5</relative_humidity_tolerance_percent>
+            <target_uptime_percent>98</target_uptime_percent>
+            <sensor_response_time_seconds>5</sensor_response_time_seconds>
+          </values>
+          <notes>Thresholds defined in collaboration with museum curators and aligned with pilot success criteria.</notes>
+        </parameter_set>
+        <parameter_set>
+          <parameter_set_label>Sensor sampling interval</parameter_set_label>
+          <parameter_set_identifier></parameter_set_identifier>
+          <parameter_type>Acquisition frequency</parameter_type>
+          <values>
+            <min_interval_seconds>60</min_interval_seconds>
+            <max_interval_seconds>3600</max_interval_seconds>
+          </values>
+          <notes>Acquisition frequency to be configured via software in collaboration with museum curators.</notes>
+        </parameter_set>
+      </used_parameters>
+      <used_devices>
+        <device>
+          <device_label>Temperature sensor</device_label>
+          <device_identifier></device_identifier>
+          <device_type>Sensor</device_type>
+          <notes>Measures internal ambient temperature of the display case.</notes>
+        </device>
+        <device>
+          <device_label>Relative humidity sensor</device_label>
+          <device_identifier></device_identifier>
+          <device_type>Sensor</device_type>
+          <notes>Measures moisture levels inside the display case.</notes>
+        </device>
+        <device>
+          <device_label>Illuminance sensor</device_label>
+          <device_identifier></device_identifier>
+          <device_type>Sensor</device_type>
+          <notes>Measures light intensity inside the display case.</notes>
+        </device>
+        <device>
+          <device_label>Vibration and shock sensor</device_label>
+          <device_identifier></device_identifier>
+          <device_type>Sensor</device_type>
+          <notes>Detects vibrations and shock events for anti-tampering purposes.</notes>
+        </device>
+        <device>
+          <device_label>Magnetic/reed switch</device_label>
+          <device_identifier></device_identifier>
+          <device_type>Sensor</device_type>
+          <notes>Monitors opening and closing status of the display case.</notes>
+        </device>
+        <device>
+          <device_label>Edge processing unit</device_label>
+          <device_identifier></device_identifier>
+          <device_type>Node</device_type>
+          <notes>ESP32 or Raspberry Pi; buffers data locally during connectivity loss and forwards it upon reestablishment.</notes>
+        </device>
+      </used_devices>
+      <continued_from/>
+      <time_span>
+        <begin></begin>
+        <end></end>
+        <label></label>
+      </time_span>
+      <place>
+        <place_name>Museo Sigismondo Castromediano, Lecce, Italy</place_name>
+        <latitude></latitude>
+        <longitude></longitude>
+        <place_identifier></place_identifier>
+      </place>
+    </operation>
+
+    <operation>
+      <operation_id>operation_02</operation_id>
+      <operation_title>Real-Time Digital Twin Synchronisation</operation_title>
+      <operation_type>Transformation Operation</operation_type>
+      <general_purpose>Maintain a continuously updated digital representation (RHDT) of the Smart Display Case and its internal environment, enabling remote diagnostics and predictive conservation.</general_purpose>
+      <description>Sensor data collected by the IoT monitoring operation are ingested and propagated to the RHDT of the Smart Display Case. The Digital Twin mirrors the physical state of the case in real time, maintaining a maximum synchronisation lag of 10 seconds. The twin stores historical environmental measurements in the IoT Time-Series NoSQL database and links them semantically to the corresponding IoT Nodes and Activities in the ARTEMIS Triple Store. The operation also handles alert generation when environmental or security thresholds are exceeded.</description>
+      <concerns_heritage_entity>
+        <entity_id>artemis_he_006</entity_id>
+      </concerns_heritage_entity>
+      <inputs>
+        <input>
+          <object_label>High-frequency environmental monitoring dataset</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Time-Series Dataset</object_class>
+          <access_point></access_point>
+          <notes>Output of operation 01; time-stamped sensor readings transmitted via MQTT and RESTful APIs.</notes>
+        </input>
+        <input>
+          <object_label>Asset and contextual metadata from ARTEMIS Knowledge Base</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Semantic Dataset</object_class>
+          <access_point></access_point>
+          <notes>Structured metadata retrieved from the Triple Store: AssetID, AssetName, AssetDescription, ResponsibleInstitution, reference to 3D model, linked IoT Nodes, contextual information.</notes>
+        </input>
+      </inputs>
+      <outputs>
+        <output>
+          <object_label>Real-time Heritage Digital Twin (RHDT) of the Smart Display Case</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Digital Twin</object_class>
+          <access_point></access_point>
+          <notes>Continuously updated virtual representation of the physical case and its internal environment, with a maximum synchronisation lag of 10 seconds.</notes>
+        </output>
+        <output>
+          <object_label>Conservation alerts</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Alert Dataset</object_class>
+          <access_point></access_point>
+          <notes>Automated notifications triggered when environmental or security thresholds are exceeded; transmitted to users within 5 seconds of event occurrence.</notes>
+        </output>
+        <output>
+          <object_label>Historical environmental measurement archive</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Time-Series Dataset</object_class>
+          <access_point></access_point>
+          <notes>Semantically linked historical monitoring data stored in the ARTEMIS NoSQL database and registered in the Triple Store.</notes>
+        </output>
+      </outputs>
+      <used_software/>
+      <implemented_using>
+        <service>
+          <service_title>IoT Services</service_title>
+          <service_identifier>artemis_BEDP-09</service_identifier>
+        </service>
+        <service>
+          <service_title>ARTEMIS IoT Viewer</service_title>
+          <service_identifier>artemis_CAW-06</service_identifier>
+        </service>
+      </implemented_using>
+      <used_parameters/>
+      <used_devices/>
+      <continued_from>operation_01</continued_from>
+      <time_span>
+        <begin></begin>
+        <end></end>
+        <label></label>
+      </time_span>
+      <place>
+        <place_name>Museo Sigismondo Castromediano, Lecce, Italy</place_name>
+        <latitude></latitude>
+        <longitude></longitude>
+        <place_identifier></place_identifier>
+      </place>
+    </operation>
+
+    <operation>
+      <operation_id>aoperation_03</operation_id>
+      <operation_title>Conservation Data Analysis and Dashboard Visualisation</operation_title>
+      <operation_type>Analysis Operation</operation_type>
+      <general_purpose>Enable museum curators, conservators and technical personnel to monitor environmental conditions, assess degradation risks, and consult historical records through dashboard interfaces and analytical tools.</general_purpose>
+      <description>Real-time and historical data from the Digital Twin are visualised through the ARTEMIS IoT Viewer dashboard. The operation supports multiple user roles: curators and managers access real-time data and alerts; conservators analyse environmental stability and assess potential degradation risks; technical personnel monitor system performance. The operation correlates current sensor readings with past monitoring campaigns to support predictive conservation analytics. It also ingests the output of test scenarios (environmental fluctuation response, degradation suppression, vandalism detection, Digital Twin synchronisation verification).</description>
+      <concerns_heritage_entity>
+        <entity_id>artemis_he_006</entity_id>
+      </concerns_heritage_entity>
+      <inputs>
+        <input>
+          <object_label>Real-time Heritage Digital Twin (RHDT) of the Smart Display Case</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Digital Twin</object_class>
+          <access_point></access_point>
+          <notes>Output of operation 02; provides real-time and historical environmental state of the display case.</notes>
+        </input>
+        <input>
+          <object_label>Conservation alerts</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Alert Dataset</object_class>
+          <access_point></access_point>
+          <notes>Automated alert records generated by the Digital Twin synchronisation operation.</notes>
+        </input>
+        <input>
+          <object_label>User feedback surveys</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Survey Dataset</object_class>
+          <access_point></access_point>
+          <notes>Structured feedback collected from curators and technical staff at mid-pilot and post-pilot stages.</notes>
+        </input>
+        <input>
+          <object_label>Maintenance and intervention logs</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Log Dataset</object_class>
+          <access_point></access_point>
+          <notes>Operator-generated records documenting observed issues, actions taken and outcomes.</notes>
+        </input>
+      </inputs>
+      <outputs>
+        <output>
+          <object_label>Environmental stability analysis report</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Analysis Report</object_class>
+          <access_point></access_point>
+          <notes>Documents the percentage of time microclimatic conditions remained within target thresholds (temperature ±1.5°C, humidity ±5%) over the monitoring period.</notes>
+        </output>
+        <output>
+          <object_label>Anomaly detection and response log</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Log Dataset</object_class>
+          <access_point></access_point>
+          <notes>Records of detected anomalies (temperature spikes, humidity fluctuations, vibration, unauthorised access) and system responses, with detection accuracy ≥95% and false positive rate &lt;5%.</notes>
+        </output>
+        <output>
+          <object_label>Pilot evaluation report</object_label>
+          <object_identifier></object_identifier>
+          <object_class>Evaluation Report</object_class>
+          <access_point></access_point>
+          <notes>Final assessment covering system reliability, user satisfaction, conservation impact and recommendations for future scaling and standardisation.</notes>
+        </output>
+      </outputs>
+      <used_software/>
+      <implemented_using>
+        <service>
+          <service_title>ARTEMIS IoT Viewer</service_title>
+          <service_identifier>artemis_CAW-06</service_identifier>
+        </service>
+      </implemented_using>
+      <used_parameters/>
+      <used_devices/>
+      <continued_from>operation_02</continued_from>
+      <time_span>
+        <begin></begin>
+        <end></end>
+        <label></label>
+      </time_span>
+      <place>
+        <place_name>Museo Sigismondo Castromediano, Lecce, Italy</place_name>
+        <latitude></latitude>
+        <longitude></longitude>
+        <place_identifier></place_identifier>
+      </place>
+    </operation>
+
+  </operations>
+</artemis_pilot>

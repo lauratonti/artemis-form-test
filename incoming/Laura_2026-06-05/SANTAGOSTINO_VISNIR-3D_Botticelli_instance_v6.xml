@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<artemis_analysis>
+  <analysis>
+    <heritage_object_artemis_id>https://artemis-twin.eu/entity/artemis_he_003</heritage_object_artemis_id>
+    <analysis_was_performed_on>Sant'Agostino nello studio (Botticelli)</analysis_was_performed_on>
+    <object_or_area_or_portion_or_sample_analysed>
+      <object_area_sample>
+        <object_area_sample_label>Sant'Agostino nello studio (Botticelli)</object_area_sample_label>
+        <object_area_sample_uri>https://artemis-twin.eu/entity/artemis_he_003</object_area_sample_uri>
+        <object_area_sample_type>Heritage Object</object_area_sample_type>
+      </object_area_sample>
+    </object_or_area_or_portion_or_sample_analysed>
+    <analysis_type>Reflectance Imaging Spectroscopy (RIS); 3D Laser Scanning</analysis_type>
+    <analysis_title>Synchronized Hardware-Registered VIS-NIR Imaging Spectroscopy and 3D Sensing on a Fresco by Botticelli</analysis_title>
+    <notes>Synchronized sensing technique for the analysis of painted surfaces of frescos. The performance of Visible-Near Infrared (VIS-NIR) Reflectance Imaging Spectroscopy (RIS) synchronized with three-dimensional (3D) acquisition is demonstrated in the study of a detached mural painting by Alessandro Botticelli. Synchronized sensing generates georeferenced data for simplified data treatment and interpretation.</notes>
+    <time_span>
+      <span>
+        <from>2014</from>
+        <until>2020</until>
+      </span>
+    </time_span>
+    <took_place_at>
+      <place>
+        <place_name>Opificio delle Pietre Dure, Firenze, Italia</place_name>
+        <country>https://www.geonames.org/3175395</country>
+        <place_uri>https://www.geonames.org/6541890</place_uri>
+      </place>
+    </took_place_at>
+    <carried_out_by>
+      <agent>
+        <agent_type>Group</agent_type>
+        <n>National Institute of Optics of the National Research Council of Italy (INO-CNR)</n>
+        <identifier>https://www.ino.cnr.it/</identifier>
+        <homepage>https://www.ino.cnr.it/</homepage>
+      </agent>
+    </carried_out_by>
+    <had_participant>
+      <agent>
+        <agent_type>Person</agent_type>
+        <n>Jana Striova</n>
+        <identifier>https://orcid.org/0000-0003-0790-4689</identifier>
+        <email>jana.striova@ino.cnr.it</email>
+        <institution>National Institute of Optics of the National Research Council of Italy (INO-CNR)</institution>
+      </agent>
+      <agent>
+        <agent_type>Person</agent_type>
+        <n>Luca Pezzati</n>
+        <identifier>https://orcid.org/0000-0001-9354-4055</identifier>
+        <email>luca.pezzati@cnr.it</email>
+        <institution>National Institute of Optics of the National Research Council of Italy (INO-CNR)</institution>
+      </agent>
+      <agent>
+        <agent_type>Person</agent_type>
+        <n>Enrico Pampaloni</n>
+        <identifier>https://orcid.org/0000-0002-3828-2336</identifier>
+        <email>enrico.pampaloni@ino.cnr.it</email>
+        <institution>National Institute of Optics of the National Research Council of Italy (INO-CNR)</institution>
+      </agent>
+      <agent>
+        <agent_type>Person</agent_type>
+        <n>Raffaella Fontana</n>
+        <identifier>https://orcid.org/0000-0002-1323-5100</identifier>
+        <email>raffaella.fontana@ino.cnr.it</email>
+        <institution>National Institute of Optics of the National Research Council of Italy (INO-CNR)</institution>
+      </agent>
+    </had_participant>
+    <used_method>
+      <method>
+        <method_name>Visible-Near Infrared (VIS-NIR) Reflectance Imaging Spectroscopy (RIS)</method_name>
+        <method_notes>Multispectral/Hyperspectral (MS/HS) reflectance imaging spectroscopy (RIS) exploiting the property of IR radiation to penetrate pictorial layers, revealing properties and composition of the probed matter.</method_notes>
+      </method>
+      <method>
+        <method_name>3D Laser Triangulation</method_name>
+        <method_notes>3D acquisition using a laser distance sensor (triangulation meter) to retrieve the surface topography, synchronized with the VIS-NIR scanning.</method_notes>
+      </method>
+    </used_method>
+    <used_device>
+      <device>
+        <device_name>INO-CNR VIS-NIR Multispectral Scanner with 3D Sensing</device_name>
+        <model>Custom-built multispectral scanner (32 bands, 380-2500 nm) with synchronized 3D triangulation sensor</model>
+        <maker>
+          <agent_type>Group</agent_type>
+          <n>National Institute of Optics (INO-CNR)</n>
+        </maker>
+        <current_owner>
+          <agent_type>Group</agent_type>
+          <n>National Institute of Optics of the National Research Council of Italy (INO-CNR)</n>
+          <identifier>https://www.ino.cnr.it/</identifier>
+        </current_owner>
+      </device>
+    </used_device>
+    <used_components>
+      <component>
+        <component_name>VIS-NIR Photodetectors (Si and InGaAs)</component_name>
+        <model>19 Si (380-1000 nm) and 12 InGaAs (1050-2500 nm) photodiodes</model>
+        <maker>Unknown</maker>
+        <current_owner>National Institute of Optics of the National Research Council of Italy (INO-CNR)</current_owner>
+      </component>
+      <component>
+        <component_name>3D Triangulation Distance Meter</component_name>
+        <model>High-speed triangulation distance meter</model>
+        <maker>Unknown</maker>
+        <current_owner>National Institute of Optics of the National Research Council of Italy (INO-CNR)</current_owner>
+      </component>
+      <component>
+        <component_name>XY(Z) Scanning System</component_name>
+        <model>Two orthogonally mounted XY stages (1000 mm run) and one Z stage (100 mm run)</model>
+        <maker>Unknown</maker>
+        <current_owner>National Institute of Optics of the National Research Council of Italy (INO-CNR)</current_owner>
+      </component>
+      <component>
+        <component_name>Illumination System</component_name>
+        <model>Two low-voltage current-stabilized halogen lamps and two narrow-spot white LEDs</model>
+        <maker>Unknown</maker>
+        <current_owner>National Institute of Optics of the National Research Council of Italy (INO-CNR)</current_owner>
+      </component>
+    </used_components>
+    <used_software>
+      <software>
+        <software_name>Custom-made control software</software_name>
+        <software_notes>Custom software for synchronizing the XY(Z) scanning system, the triangulation distance meter (autofocus), and the acquisition of the spectral reflectance image.</software_notes>
+      </software>
+    </used_software>
+    <used_settings>
+      <settings>
+        <setting_values>
+          <setting_value>Illumination/Detection Geometry: 45°/0°</setting_value>
+          <setting_value>Spectral Range: 380-2500 nm</setting_value>
+          <setting_value>Spectral Bands: 32 (19 VIS, 13 NIR)</setting_value>
+          <setting_value>Pixel Size (Spatial Resolution): 0.25 mm x 0.25 mm</setting_value>
+          <setting_value>Resolution (DPI): 4 pix/mm (101.6 dpi)</setting_value>
+          <setting_value>Acquisition Rate: approx. 3 hours per square meter</setting_value>
+          <setting_value>3D Sampling Step: 250 micron</setting_value>
+          <setting_value>Autofocus (AF) system: Open-loop configuration</setting_value>
+        </setting_values>
+        <specified_in>https://doi.org/10.3390/s21041287</specified_in>
+      </settings>
+    </used_settings>
+    <produced_dataset>
+      <dataset>
+        <dataset_title>Synchronized Hardware-Registered VIS-NIR Imaging Spectroscopy and 3D Sensing on a Fresco by Botticelli</dataset_title>
+        <dataset_url>https://doi.org/10.3390/s21041287</dataset_url>
+        <dataset_type>Scientific paper</dataset_type>
+      </dataset>
+    </produced_dataset>
+  </analysis>
+</artemis_analysis>
